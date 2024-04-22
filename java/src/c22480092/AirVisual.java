@@ -25,14 +25,21 @@ public class AirVisual {
     
             // Loop through every sample in the sound buffer
             for (int i = 0; i < mz.mySound.bufferSize() - 1; i++) {
-                //float leftLevel = mz.mySound.left.level() * 20; // Get the amplitude of the left channel
+                float leftLevel = mz.mySound.left.level() * 20; // Get the amplitude of the left channel
                 float hue = mz.map(mz.frameCount % 360, 0, 360, 0, 360); // Map the frame count to a hue value
                 mz.fill(hue, 250, 150); // Set the fill color based on the hue
+                mz.ellipse(i, i, leftLevel, leftLevel); // Draw an ellipse with the left channel amplitude as the radius
+                mz.rotateZ((float) (n * -mz.PI / 3 * 0.05)); // Rotate the ellipse around the z-axis
+                mz.fill(400, 550, 23); // Set the fill color to a fixed value
             }
     
+            // Add a new motion to the visualization
+            n2 += 0.3; // Increment the motion variable
+            float x = mz.sin(n2) * mz.width / 3; // Calculate the x-coordinate of the translation
+            float y = mz.cos(n2) * mz.height / 3; // Calculate the y-coordinate of the translation
+            mz.translate(x, y); // Translate the origin by the calculated amount
+    
+            n += 0.08; // Increment the rotation variable
+            n3 += speed2; // Increment the motion speed variable
         }
-    
-    
-
-
 }
