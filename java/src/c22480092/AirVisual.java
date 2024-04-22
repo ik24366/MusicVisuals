@@ -16,7 +16,15 @@ public class AirVisual {
             this.mz = mz;
         }
     
-
+        // Method that is called to draw the visualization
+        public void draw() {
+            mz.fill(0, 20); // Fill the background with black with 20% opacity
+            mz.noStroke(); // Disable stroke
+            mz.rect(0, 0, mz.width, mz.height); // Draw a rectangle that covers the entire canvas
+            mz.translate(mz.width / 2, mz.height / 2); // Translate the origin to the center of the canvas
+    
+        }
+    
     
 
 
