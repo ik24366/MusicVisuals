@@ -49,19 +49,15 @@ public class Avatar extends Visual {
 
     public void keyPressed() {
         // Select the visual based on the key pressed
-        if (keyCode == 49) {
+        if (keyCode == '1') {
             visual = 1;
-        } else if (keyCode == 50) {
+        } else if (keyCode == '2') {
             visual = 2;
-        } else if (keyCode == 51) {
+        } else if (keyCode == '3') {
             visual = 3;
-        } else if (keyCode == 52) {
+        } else if (keyCode == '4') {
             visual = 4;
-        } else if (keyCode == 53) {
-            visual = 5;
-        } else if (keyCode == 54) {
-            visual = 6;
-        } else if (keyCode == 55) { // Exit the sketch if the number 7 is pressed
+        } else if (keyCode == '5') { // Exit the sketch if the number 7 is pressed
             exit();
         }
     }
@@ -72,12 +68,6 @@ public class Avatar extends Visual {
         background(0); // Set the background color to black
         calculateFrequencyBands(); // Calculate the frequency bands of the audio
         calculateAverageAmplitude(); // Calculate the average amplitude of the audio
-        try {
-            calculateFFT(); // Call this if you want to use FFT data
-        } catch (VisualException e) {
-            e.printStackTrace();
-        }
-        m = millis() / 1000; // Calculate the elapsed time in seconds
 
         // Draw the currently selected visual
         if (visual == 1) {
@@ -93,6 +83,6 @@ public class Avatar extends Visual {
         //     .draw();
         // }  else if (visual == 6) {
         //     .draw();
-        }
+        //}
     }
     }
