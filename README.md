@@ -1,8 +1,8 @@
 # Music Visualiser Project
 
-Name:
+Name:Sean Laureta
 
-Student Number: 
+Student Number:C22503056
 
 ## Instructions
 - Fork this repository and use it a starter project for your assignment
