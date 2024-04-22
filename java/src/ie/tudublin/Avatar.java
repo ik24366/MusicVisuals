@@ -15,12 +15,7 @@ public class Avatar extends Visual {
     public AudioPlayer mySound; // Minim audio player
 
     // Declare the visual variables without initializing them
-    // KYVisual1 kv1;
-    // KYVisual2 kv2;
-    // gambinovisual1 gv1;
-    // gambinovisual2 gv2;
-    // ESMVisual1 ev1;
-    // ESMVisual2 ev2;
+    AirVisual mz;
 
     public void settings() {
         size(1920, 1080, P3D); // Set the size and renderer of the sketch
@@ -49,12 +44,7 @@ public class Avatar extends Visual {
 
     public void initializeVisuals() {
         // Initialize each visual and pass a reference to this sketch and the AudioPlayer
-        // kv1 = new KYVisual1(this, getAudioPlayer());
-        // kv2 = new KYVisual2(this);
-        // gv1 = new gambinovisual1(this);
-        // gv2 = new gambinovisual2(this);
-        // ev1 = new ESMVisual1(this);
-        // ev2 = new ESMVisual2(this);
+        mz = new AirVisual(this);
     }
 
     public void keyPressed() {
@@ -77,31 +67,32 @@ public class Avatar extends Visual {
     }
 
     public void draw() {
-        // System.out.println(keyCode); // Print the ASCII code of the key pressed to the console
+        System.out.println(keyCode); // Print the ASCII code of the key pressed to the console
 
-        // background(0); // Set the background color to black
-        // calculateFrequencyBands(); // Calculate the frequency bands of the audio
-        // calculateAverageAmplitude(); // Calculate the average amplitude of the audio
-        // try {
-        //     calculateFFT(); // Call this if you want to use FFT data
-        // } catch (VisualException e) {
-        //     e.printStackTrace();
-        // }
-        // m = millis() / 1000; // Calculate the elapsed time in seconds
+        background(0); // Set the background color to black
+        calculateFrequencyBands(); // Calculate the frequency bands of the audio
+        calculateAverageAmplitude(); // Calculate the average amplitude of the audio
+        try {
+            calculateFFT(); // Call this if you want to use FFT data
+        } catch (VisualException e) {
+            e.printStackTrace();
+        }
+        m = millis() / 1000; // Calculate the elapsed time in seconds
 
-        // // Draw the currently selected visual
-        // if (visual == 1) {
-        //     gv1.draw();
+        // Draw the currently selected visual
+        if (visual == 1) {
+            mz.draw();
+        }
         // } else if (visual == 2) {
-        //     gv2.draw();
+        //     .draw();
         // } else if (visual == 3) {
-        //     ev1.draw();
+        //     .draw();
         // } else if (visual == 4) {
-        //     ev2.draw();
+        //     .draw();
         // } else if (visual == 5) {
-        //     kv1.draw();
+        //     .draw();
         // }  else if (visual == 6) {
-        //     kv2.draw();
-        // }
+        //     .draw();
+        }
     }
     }
