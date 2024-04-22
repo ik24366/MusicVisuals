@@ -9,6 +9,7 @@ import c22369396.*;
 
 public class Avatar extends Visual {
 
+    Minim minim;
     int visual = 0; // Stores the currently selected visual
     int m = 0; // Stores the elapsed time in seconds
     public AudioPlayer mySound; // Minim audio player
@@ -41,9 +42,9 @@ public class Avatar extends Visual {
         getAudioPlayer().play();
         smooth(); 
         
-        // minim = new Minim(this);
-        // mySound = minim.loadFile("Avatar.mp3");
-        // mySound.play();
+        minim = new Minim(this);
+        mySound = minim.loadFile("Avatar.mp3");
+        mySound.play();
     }
 
     public void initializeVisuals() {
