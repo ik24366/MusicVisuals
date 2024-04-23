@@ -81,9 +81,4 @@ public class Avatar extends Visual {
             mz.draw();
         }
     }
-
-    public float noise(double d, double e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'noise'");
-    }
 }
