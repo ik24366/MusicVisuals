@@ -32,7 +32,7 @@ public class FireVisual {
         drawFire();
 
         // Draw fireball visual
-        drawFireballVisual();
+        // drawFireballVisual();
 
         // Draw signal-like effect
         drawSignalEffect();
@@ -116,14 +116,23 @@ public class FireVisual {
         fv.strokeWeight(2);
         fv.noFill();
         fv.stroke(0, 100, 100); // Red color
-        for (int i = 0; i < numSegments; i++) {
-            float x1 = centerX - segmentSize / 2 + i * segmentSize;
-            float y1 = centerY + amplitude * ampMultiplier;
-            float x2 = x1 + segmentSize;
-            float y2 = centerY + amplitude * ampMultiplier;
 
-            // fv.line(x1, y1, x2, y2);
+        // Calculate segment height based on amplitude
+        float segmentHeight = amplitude * ampMultiplier;
+
+        // Calculate the width of each segment
+        float segmentWidth = fv.width / numSegments;
+
+        // Draw the signal effect
+        fv.beginShape();
+        fv.vertex(0, centerY); // Start from left edge
+        for (int i = 0; i < numSegments; i++) {
+            float x = i * segmentWidth;
+            float y = centerY - segmentHeight * fv.sin(i * 0.1f); // Adjust using sin function for dynamic effect
+            fv.vertex(x, y);
         }
+        fv.vertex(fv.width, centerY); // End at the right edge
+        fv.endShape();
     }
 
     // Inner class representing a fireball
