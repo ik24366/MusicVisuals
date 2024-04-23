@@ -170,7 +170,6 @@ public class WaterVisual {
         }
     }
     
-
 }
 
 class Wave {
