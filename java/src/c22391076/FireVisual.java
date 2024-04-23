@@ -48,17 +48,14 @@ public class FireVisual {
         // Set default fill color to black
         fv.fill(0);
 
-        // Use the audio level to change the background color
-        // fv.background(fv.map(amplitude, 0, 1, 0, 360), 100, 50);
-
         // Translate to the center of the screen
         fv.translate(fv.width / 2, fv.height / 2);
 
         // Loop through each sample in the audio buffer
         for (int i = 0; i < fv.mySound.bufferSize() - 1; i++) {
             // Calculate angles and positions based on the current frame and audio level
-            float angle = fv.sin(i + n1) * 50;
-            float angle2 = fv.sin(i + n2) * 500;
+            float angle = fv.sin(i + n1) * 25;
+            float angle2 = fv.sin(i + n2) * 800;
 
             float x = fv.sin(fv.radians(i)) * (angle2 + 30);
             float y = fv.cos(fv.radians(i)) * (angle2 + 30);
@@ -67,16 +64,16 @@ public class FireVisual {
             float y3 = fv.cos(fv.radians(i)) * (500 / angle);
 
             // Draw circles and rectangles with colors based on the audio level
-            fv.fill(fv.map(amplitude, 0, 1, 30, 0), 100, 100); // Yellow to red hues
+            fv.fill(fv.map(amplitude, 0, 1, 60, 30), 100, 100); // Yellow to orange hues
             fv.ellipse(x, y, fv.mySound.left.get(i) * 10, fv.mySound.left.get(i) * 10);
 
-            fv.fill(fv.map(amplitude, 0, 1, 30, 0), 50, 100); // Yellow to red hues
+            fv.fill(fv.map(amplitude, 0, 1, 60, 30), 50, 100); // Yellow to orange hues
             fv.rect(x3, y3, fv.mySound.left.get(i) * 20, fv.mySound.left.get(i) * 10);
 
-            fv.fill(fv.map(amplitude, 0, 1, 30, 0), 100, 100); // Yellow to red hues
+            fv.fill(fv.map(amplitude, 0, 1, 60, 30), 100, 100); // Yellow to orange hues
             fv.rect(x, y, fv.mySound.right.get(i) * 10, fv.mySound.left.get(i) * 10);
 
-            fv.fill(fv.map(amplitude, 0, 1, 30, 0), 100, 100); // Yellow to red hues
+            fv.fill(fv.map(amplitude, 0, 1, 60, 30), 100, 100); // Yellow to orange hues
             fv.rect(x3, y3, fv.mySound.right.get(i) * 10, fv.mySound.right.get(i) * 20);
         }
 
@@ -84,11 +81,6 @@ public class FireVisual {
         n1 += 0.008;
         n2 += 0.04;
 
-        // Draw fire in the center
-        // drawFire();
-
-        // Draw fireball visual
-        // drawFireballVisual();
     }
 
     // Inner class representing a fireball
