@@ -2,6 +2,8 @@ package c22391076;
 
 import ddf.minim.*;
 import ie.tudublin.*;
+import processing.core.PVector;
+import processing.core.PShape;
 
 public class FireVisual {
 
@@ -32,10 +34,8 @@ public class FireVisual {
         drawFire();
 
         // Draw fireball visual
-        // drawFireballVisual();
+        drawFireballVisual();
 
-        // Draw signal-like effect
-        drawSignalEffect();
     }
 
     private void drawFire() {
@@ -62,77 +62,29 @@ public class FireVisual {
         }
     }
 
-    private void drawFireballVisual() {
+    public void drawFireballVisual() {
         // Center of the screen
         float centerX = fv.width / 2;
         float centerY = fv.height / 2;
 
-        // Number of blobs
-        int numBlobs = 10;
+        // Calculate size based on audio level
+        float size = 50 + amplitude * 200;
+        // Calculate rotation speed based on audio level
+        float rotationSpeed = (float) (amplitude * 0.1);
 
-        // Base size and intensity of the blobs
-        float baseSize = 50;
-        float baseIntensity = 60;
+        // Create a PShape (sphere)
+        PShape ball = fv.createShape(fv.SPHERE, size);
 
-        // Distance between ellipses
-        float distance = fv.width / numBlobs;
+        // Set the fill color to red
+        fv.fill(255, 0, 0); // Red color
 
-        // Draw blobs
-        fv.noStroke();
-        for (int i = 0; i < numBlobs; i++) {
-            // Calculate position
-            float x = centerX + (i - numBlobs / 2) * distance;
-            float y = centerY;
+        // Apply transformations
+        fv.translate(centerX, centerY); // Move to the center
+        fv.rotateY(fv.frameCount * rotationSpeed); // Rotate around Y-axis
+        fv.rotateX(fv.frameCount * rotationSpeed); // Rotate around X-axis
 
-            // Adjust size based on audio level
-            float size = baseSize + amplitude * 200;
-            // Adjust color based on audio level
-            float hue = 30 + amplitude * 60;
-            fv.fill(hue, 100, baseIntensity + amplitude * 40);
-            // Draw blob
-            fv.ellipse(x, y, size / 2, size * 2);
-
-            // Draw additional ellipses going down till the edge of the screen
-            for (float dy = size * 2; y + dy < fv.height; dy += size * 2) {
-                fv.ellipse(x, y + dy, size / 2, size * 2);
-            }
-        }
-    }
-
-    private void drawSignalEffect() {
-        // Center of the screen
-        float centerX = fv.width / 2;
-        float centerY = fv.height / 2;
-
-        // Number of segments
-        int numSegments = 100;
-
-        // Segment size
-        float segmentSize = 20;
-
-        // Amplitude multiplier
-        float ampMultiplier = 100;
-
-        fv.strokeWeight(2);
-        fv.noFill();
-        fv.stroke(0, 100, 100); // Red color
-
-        // Calculate segment height based on amplitude
-        float segmentHeight = amplitude * ampMultiplier;
-
-        // Calculate the width of each segment
-        float segmentWidth = fv.width / numSegments;
-
-        // Draw the signal effect
-        fv.beginShape();
-        fv.vertex(0, centerY); // Start from left edge
-        for (int i = 0; i < numSegments; i++) {
-            float x = i * segmentWidth;
-            float y = centerY - segmentHeight * fv.sin(i * 0.1f); // Adjust using sin function for dynamic effect
-            fv.vertex(x, y);
-        }
-        fv.vertex(fv.width, centerY); // End at the right edge
-        fv.endShape();
+        // Draw the 3D ball
+        fv.shape(ball);
     }
 
     // Inner class representing a fireball
