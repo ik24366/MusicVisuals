@@ -56,15 +56,18 @@ public class EarthVisual {
         float step = 10; // Step size for drawing the monitor
         float xStart = 50; // X-coordinate to start drawing the line
         float xEnd = ev.width - 50; // X-coordinate to end drawing the line
-        float y = ev.height / 8; // Y-coordinate for the heart rate monitor line (moved higher up)
-    
+        float y = ev.height / 4; // Y-coordinate for the heart rate monitor line
+
         ev.colorMode(PApplet.RGB);
-        ev.stroke(0, 255, 0); // Set to green color
-        ev.strokeWeight(2);
-    
+        ev.stroke(0, 255, 0); // Green color
+        // Set stroke weight to make the line thinner
+        ev.strokeWeight(1);
+
+        // Draw the heart rate monitor line
         for (float x = xStart; x <= xEnd; x += step) {
-            float sineWave = PApplet.sin(x * 0.1f + ev.frameCount * 0.1f) * yOffset; 
-            ev.line(x, y + sineWave, x + step, y + PApplet.sin((x + step) * 0.1f + ev.frameCount * 0.1f) * yOffset);
+            float sineWave = PApplet.sin(x * 0.1f + ev.frameCount * 0.1f); // Calculate a sine wave
+            float yCoord = y + sineWave * yOffset; // Adjust the y-coordinate based on the sine wave and yOffset
+            ev.line(x, yCoord, x + step, yCoord); // Draw a line segment
         }
     }
 
@@ -95,30 +98,31 @@ public class EarthVisual {
         ev.noStroke();
     
         int numColumns = 20;
-        float columnWidth = (float) ev.width / numColumns;
+        float columnWidth = ev.width / (float) numColumns;
+        float depth = 50; // Depth of each column
     
         for (int i = 0; i < numColumns; i++) {
             float x = i * columnWidth;
             float heightMultiplier = ev.getSmoothedAmplitude() * 3500;
             float columnHeight = PApplet.sin(ev.frameCount * 0.1f + i) * heightMultiplier;
     
-            // Create a gradient effect for each column
-            for (float j = 0; j < columnHeight; j++) {
-                // Calculate brightness based on the height
-                // Darker at the bottom (base), lighter at the top (peak)
-                float brightness = PApplet.map(j, 0, columnHeight, 100, 255);
-                int r = (int) PApplet.map(j, 0, columnHeight, 141, 44); // Darker brown at the bottom
-                int g = (int) PApplet.map(j, 0, columnHeight, 73, 28);
-                int b = (int) PApplet.map(j, 0, columnHeight, 37, 19);
-                ev.fill(r, g, b, brightness); // Apply color with changing brightness
+            ev.pushMatrix();  // Save the current transformation matrix
+            ev.translate(x + columnWidth / 2, ev.height, -depth / 2);  // Move to the position to draw the column
+            ev.rotateX(PApplet.PI/2);  // Rotate to lay the box down
     
-                // Draw each layer of the gradient
-                ev.rect(x, ev.height - j, columnWidth, 1);
+            // Set color based on height for a gradient effect (dark bottom, light top)
+            for (float j = 0; j < columnHeight; j += depth) {
+                float alpha = PApplet.map(j, 0, columnHeight, 255, 100);
+                ev.fill(139, 69, 19, alpha);
+                // Draw small segments of the box to create gradient effect
+                ev.box(columnWidth, depth, depth);  // Draw the box with width, height, and depth
+                ev.translate(0, -depth, 0);  // Move up for the next segment
             }
-    
-            drawParticles(x + columnWidth / 2, ev.height - columnHeight, heightMultiplier);
+            
+            ev.popMatrix();  // Restore the original transformation matrix
         }
     }
+    
     
 
 
