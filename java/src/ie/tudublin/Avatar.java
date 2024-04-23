@@ -67,17 +67,15 @@ public class Avatar extends Visual {
     }
 
     public void draw() {
-        System.out.println(keyCode); // Print the ASCII code of the key pressed to the console
-
         background(0); // Set the background color to black
         calculateFrequencyBands(); // Calculate the frequency bands of the audio
         calculateAverageAmplitude(); // Calculate the average amplitude of the audio
 
         // Draw the currently selected visual
-        if (visual == 4) {
-            mz.draw();
+        if (visual == 1) {
         } else if (visual == 2) {
             fv.draw();
+<<<<<<< HEAD
          } else if (visual == 3) {
             wv.draw();
             // } else if (visual == 4) {
@@ -87,6 +85,11 @@ public class Avatar extends Visual {
             // } else if (visual == 6) {
             // .draw();
             // }
+=======
+        } else if (visual == 3) {
+        } else if (visual == 4) {
+            mz.draw();
+>>>>>>> 43f08e83c06b1b1868029469b95196a2c26d578d
         }
     }
 
