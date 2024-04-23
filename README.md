@@ -6,6 +6,12 @@ Student Number:C22503056
 Name: Muhammad Zayan Zahid 
 Student Number: C22480092
 
+| Name                  | Student Number    | Music Visuals    |
+|-----------            |-----------        |-----------  	   |
+|Muhammad Zayan Zahid	| C         |    |
+|Sean Laureta			| C       |           |
+|Luca Ursache           | C        |	 |
+
 Name:
 Student Number:
 
