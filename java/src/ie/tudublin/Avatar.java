@@ -24,6 +24,7 @@ public class Avatar extends Visual {
         fullScreen(SPAN);
     }
 
+
     public void setup() {
         colorMode(HSB); // Set the color mode of the sketch
         frameRate(60); // Set the frame rate of the sketch
@@ -83,10 +84,5 @@ public class Avatar extends Visual {
         } else if (visual == 4) {
             mz.draw();
         }
-    }
-
-    public float noise(double d, double e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'noise'");
     }
 }
