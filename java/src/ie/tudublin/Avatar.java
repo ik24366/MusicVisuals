@@ -16,6 +16,7 @@ public class Avatar extends Visual {
     // Declare the visual variables without initializing them
     AirVisual mz;
     FireVisual fv;
+    WaterVisual wv;
 
     public void settings() {
         size(1920, 1080, P3D); // Set the size and renderer of the sketch
@@ -47,6 +48,7 @@ public class Avatar extends Visual {
         // AudioPlayer
         mz = new AirVisual(this);
         fv = new FireVisual(this);
+        wv = new WaterVisual(this);
     }
 
     public void keyPressed() {
@@ -76,8 +78,8 @@ public class Avatar extends Visual {
             mz.draw();
         } else if (visual == 2) {
             fv.draw();
-            // } else if (visual == 3) {
-            // .draw();
+         } else if (visual == 3) {
+            wv.draw();
             // } else if (visual == 4) {
             // .draw();
             // } else if (visual == 5) {
