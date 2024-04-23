@@ -1,3 +1,4 @@
+//code from i am dani Laura Sun 
 package c22480092;
 import ie.tudublin.*;
 import processing.core.PApplet;
@@ -28,7 +29,12 @@ public class Lightning {
                     float y = PApplet.lerp(startY, endY, j / 30.0f) + p.random(-50, 50);
                     float thickness = 10 * PApplet.pow(PApplet.sin(j / 30.0f * PApplet.PI), 2);
 
-                    int c = p.color(PApplet.map(j, 0, 30, 255, 0), PApplet.map(j, 0, 30, 0, 255), PApplet.map(j, 0, 30, 128, 255));
+                    // Alternating between cyan and grey
+                    int hue = (j % 2 == 0) ? 180 : 0; // Cyan for even j, hue = 0 (grey) for odd j
+                    int saturation = (j % 2 == 0) ? 100 : 0; // Full saturation for cyan, no saturation for grey
+                    int brightness = 100; // Constant brightness for clear visibility
+
+                    int c = p.color(hue, saturation, brightness);
                     
                     p.stroke(c, 255 - j * 5);
                     p.strokeWeight(thickness);

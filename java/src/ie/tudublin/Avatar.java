@@ -16,6 +16,7 @@ public class Avatar extends Visual {
     // Declare the visual variables without initializing them
     AirVisual mz;
     FireVisual fv;
+    WaterVisual wv;
 
     public void settings() {
         size(1920, 1080, P3D); // Set the size and renderer of the sketch
@@ -47,6 +48,7 @@ public class Avatar extends Visual {
         // AudioPlayer
         mz = new AirVisual(this);
         fv = new FireVisual(this);
+        wv = new WaterVisual(this);
     }
 
     public void keyPressed() {
@@ -73,9 +75,27 @@ public class Avatar extends Visual {
         if (visual == 1) {
         } else if (visual == 2) {
             fv.draw();
+<<<<<<< HEAD
+         } else if (visual == 3) {
+            wv.draw();
+            // } else if (visual == 4) {
+            // .draw();
+            // } else if (visual == 5) {
+            // .draw();
+            // } else if (visual == 6) {
+            // .draw();
+            // }
+=======
         } else if (visual == 3) {
         } else if (visual == 4) {
             mz.draw();
+>>>>>>> 43f08e83c06b1b1868029469b95196a2c26d578d
         }
     }
+
+    public float noise(double d, double e) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'noise'");
+    }
 }
+
