@@ -64,7 +64,7 @@ public class Avatar extends Visual {
             visual = 3;
         } else if (keyCode == '4') {
             visual = 4;
-        } else if (keyCode == '5') { // Exit the sketch if the number 7 is pressed
+        } else if (keyCode == '5') { // Exit the sketch if the number 5 is pressed
             exit();
         }
     }
