@@ -1,16 +1,13 @@
 # Music Visualiser Project
 
-Name:Sean Laureta
-Student Number:C22503056
 
-Name: Muhammad Zayan Zahid 
-Student Number: C22480092
+| Name                  | Student Number    | Music Visuals |
+|-----------            |-----------        |-----------	|
+|Muhammad Zayan Zahid	|C22480092 			|Air  			|
+|Sean Laureta			|C22503056			|Earth       	|
+|Emma           		|C        			|Water 			|
+|Ismail					|C					|Fire			|
 
-Name:
-Student Number:
-
-Name:
-Student Number:
 
 ## Instructions
 - Fork this repository and use it a starter project for your assignment
