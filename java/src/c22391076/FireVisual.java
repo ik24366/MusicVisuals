@@ -111,7 +111,7 @@ public class FireVisual {
         float segmentSize = 20;
 
         // Amplitude multiplier
-        float ampMultiplier = 5;
+        float ampMultiplier = 100;
 
         fv.strokeWeight(2);
         fv.noFill();
@@ -122,7 +122,7 @@ public class FireVisual {
             float x2 = x1 + segmentSize;
             float y2 = centerY + amplitude * ampMultiplier;
 
-            fv.line(x1, y1, x2, y2);
+            // fv.line(x1, y1, x2, y2);
         }
     }
 
