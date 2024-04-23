@@ -1,12 +1,15 @@
 package c22369396;
+import processing.core.PApplet;
+import processing.core.PConstants;
 
 import ie.tudublin.*;
 
 public class WaterVisual {
 
+    private static final int PI = 0;
     int numCircles = 200;
     Circle[] circles = new Circle[numCircles];
-    Particle[] particles = new Particle[100]; // Array for particles
+    Particle[] particles = new Particle[100];
     Avatar wv;
     float angleX = 0;
     float angleY = 0;
@@ -17,7 +20,7 @@ public class WaterVisual {
         for (int i = 0; i < numCircles; i++) {
             circles[i] = new Circle(wv.random(wv.width), wv.random(wv.height), wv);
         }
-        for (int i = 0; i < particles.length; i++) { // Initialize particles
+        for (int i = 0; i < particles.length; i++) {
             particles[i] = new Particle(wv);
         }
     }
@@ -28,7 +31,7 @@ public class WaterVisual {
 
         float audioLevel = wv.getSmoothedAmplitude() * 1000;
 
-        for (Particle particle : particles) { // Update and display particles
+        for (Particle particle : particles) {
             particle.update();
             particle.display();
         }
@@ -51,11 +54,21 @@ public class WaterVisual {
 
         float orbSize = wv.map(audioLevel, 0, 1000, 100, 400);
 
-        wv.lights();
-        wv.noStroke();
-        wv.fill(210, 100, 100);
-        wv.sphere(orbSize);
+        // Enhanced lighting effect
+        wv.directionalLight(255, 255, 255, -1, -1, -1);
+        wv.spotLight(255, 255, 255, wv.width / 2, wv.height, 600, 0, 0, -1, PI / 2, 2);
 
+        wv.noStroke();
+        int innerColor = wv.color(210, 100, 100);
+        int outerColor = wv.color(210, 100, 100, 0);
+        for (int i = 0; i <= orbSize; i += 2) {
+            float inter = wv.map(i, 0, orbSize, 0, 1);
+            int c = wv.lerpColor(innerColor, outerColor, inter);
+            wv.fill(c);
+            wv.sphere(orbSize - i);
+        }
+
+        wv.blendMode(wv.ADD);
         wv.stroke(210, 100, 100, 50);
         wv.strokeWeight(10);
         for (int i = 1; i <= 15; i++) {
@@ -71,6 +84,7 @@ public class WaterVisual {
             wv.line(-orbSize, 0, orbSize, 0);
             wv.popMatrix();
         }
+        wv.blendMode(wv.BLEND);
 
         wv.popMatrix();
     }
