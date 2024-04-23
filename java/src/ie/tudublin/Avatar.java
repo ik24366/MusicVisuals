@@ -77,14 +77,6 @@ public class Avatar extends Visual {
             fv.draw();
         } else if (visual == 3) {
             wv.draw();
-            // } else if (visual == 4) {
-            // .draw();
-            // } else if (visual == 5) {
-            // .draw();
-            // } else if (visual == 6) {
-            // .draw();
-            // }
-        } else if (visual == 3) {
         } else if (visual == 4) {
             mz.draw();
         }
