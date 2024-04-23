@@ -10,20 +10,24 @@ public class AirVisual {
         float speed; // Used to control the speed of motion
         
         Avatar mz; // instant of Avatar class
+        Lightning lightning; // Instance of Lightning class
+
     
         // Constructor that takes an instance of the Combined class as a parameter
         public AirVisual(Avatar mz){
             this.mz = mz;
+            this.lightning = new Lightning(mz); // Initialize the Lightning class
         }
     
         // Method that is called to draw the visualization
         public void draw() {
             {
+            lightning.draw();
             mz.fill(0, 50); // Fill the background with black with 20% opacity
             mz.noStroke(); // Disable stroke
             mz.rect(0, 0, mz.width, mz.height); // Draw a rectangle that covers the entire canvas
             mz.translate(mz.width / 2, mz.height / 2); // Translate the origin to the center of the canvas
-            mz.colorMode(mz.HSB, 400, 120, 240);
+            mz.colorMode(mz.HSB, 360, 120, 240);
             
             // Loop through every sample in the sound buffer
             for (int i = 0; i < mz.mySound.bufferSize() - 1; i++) {
