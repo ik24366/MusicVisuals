@@ -25,7 +25,7 @@ public class AirVisual {
     
             // Loop through every sample in the sound buffer
             for (int i = 0; i < mz.mySound.bufferSize() - 1; i++) {
-                float leftLevel = mz.mySound.left.level() * 40; // Get the amplitude of the left channel
+                float leftLevel = mz.mySound.left.level() * 100; // Get the amplitude of the left channel
                 float hue = mz.map(mz.frameCount % 360, 0, 360, 0, 360); // Map the frame count to a hue value
                 mz.fill(hue, 250, 150); // Set the fill color based on the hue
                 mz.ellipse(i, i, leftLevel, leftLevel); // Draw an ellipse with the left channel amplitude as the radius
