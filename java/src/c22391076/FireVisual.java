@@ -71,10 +71,10 @@ public class FireVisual {
         n2 += 0.04;
 
         // Draw fire in the center
-        drawFire();
+        // drawFire();
 
         // Draw fireball visual
-        drawFireballVisual();
+        // drawFireballVisual();
     }
 
     private void drawFire() {
