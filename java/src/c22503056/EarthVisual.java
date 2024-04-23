@@ -42,30 +42,12 @@ public class EarthVisual {
         yOffset = currentAmplitude * 200;
         totalAmplitude += currentAmplitude;
     
-        drawSpiral();
         ev.pushMatrix();
         ev.translate(ev.width / 2, ev.height, 0);
         float initialBranchLength = PApplet.map(totalAmplitude, 0, 50, 150, 300);
         drawTree(initialBranchLength, 255);
         ev.popMatrix();
         drawColumns();
-    }
-    
-
-    private void drawSpiral() {
-        float step = 10; // Step size for drawing the monitor
-        float xStart = 50; // X-coordinate to start drawing the line
-        float xEnd = ev.width - 50; // X-coordinate to end drawing the line
-        float y = ev.height / 8; // Y-coordinate for the heart rate monitor line (moved higher up)
-    
-        ev.colorMode(PApplet.RGB);
-        ev.stroke(0, 255, 0); // Set to green color
-        ev.strokeWeight(2);
-    
-        for (float x = xStart; x <= xEnd; x += step) {
-            float sineWave = PApplet.sin(x * 0.1f + ev.frameCount * 0.1f) * yOffset; 
-            ev.line(x, y + sineWave, x + step, y + PApplet.sin((x + step) * 0.1f + ev.frameCount * 0.1f) * yOffset);
-        }
     }
 
     private void drawTree(float h, float brightness) {
@@ -95,43 +77,28 @@ public class EarthVisual {
         ev.noStroke();
     
         int numColumns = 20;
-        float columnWidth = (float) ev.width / numColumns;
+        float columnWidth = ev.width / (float) numColumns;
+        float depth = 50; // Depth of each column
     
         for (int i = 0; i < numColumns; i++) {
             float x = i * columnWidth;
             float heightMultiplier = ev.getSmoothedAmplitude() * 3500;
             float columnHeight = PApplet.sin(ev.frameCount * 0.1f + i) * heightMultiplier;
     
-            // Create a gradient effect for each column
-            for (float j = 0; j < columnHeight; j++) {
-                // Calculate brightness based on the height
-                // Darker at the bottom (base), lighter at the top (peak)
-                float brightness = PApplet.map(j, 0, columnHeight, 100, 255);
-                int r = (int) PApplet.map(j, 0, columnHeight, 141, 44); // Darker brown at the bottom
-                int g = (int) PApplet.map(j, 0, columnHeight, 73, 28);
-                int b = (int) PApplet.map(j, 0, columnHeight, 37, 19);
-                ev.fill(r, g, b, brightness); // Apply color with changing brightness
+            ev.pushMatrix();  // Save the current transformation matrix
+            ev.translate(x + columnWidth / 2, ev.height, -depth / 2);  // Move to the position to draw the column
+            ev.rotateX(PApplet.PI/2);  // Rotate to lay the box down
     
-                // Draw each layer of the gradient
-                ev.rect(x, ev.height - j, columnWidth, 1);
+            // Set color based on height for a gradient effect (dark bottom, light top)
+            for (float j = 0; j < columnHeight; j += depth) {
+                float alpha = PApplet.map(j, 0, columnHeight, 255, 100);
+                ev.fill(90, 40, 10, alpha);
+                // Draw small segments of the box to create gradient effect
+                ev.box(columnWidth, depth, depth);  // Draw the box with width, height, and depth
+                ev.translate(0, -depth, 0);  // Move up for the next segment
             }
-    
-            drawParticles(x + columnWidth / 2, ev.height - columnHeight, heightMultiplier);
-        }
-    }
-    
-
-
-    private void drawParticles(float x, float y, float amplitude) {
-        int numParticles = (int) (3 * amplitude); // Reduce particle count but increase size
-        for (int i = 0; i < numParticles; i++) {
-            float angle = ev.random(PApplet.TWO_PI);
-            float particleDistance = ev.random(10, 40); // Larger particles
-            float px = x + particleDistance * PApplet.cos(angle);
-            float py = y - particleDistance * PApplet.sin(angle); // Particles shoot upwards
-            float particleSize = ev.random(3, 7); // Larger particle size for rock effect
-            ev.fill(34,59,5); // Rock color
-            ev.ellipse(px, py, particleSize, particleSize);
+            
+            ev.popMatrix();  // Restore the original transformation matrix
         }
     }
 
