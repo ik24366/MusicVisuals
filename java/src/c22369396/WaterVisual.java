@@ -4,11 +4,12 @@ import ie.tudublin.*;
 
 public class WaterVisual {
 
-    int numCircles = 200; // Number of ripple circles
+    int numCircles = 200;
     Circle[] circles = new Circle[numCircles];
-    Avatar wv; // An instance of the Avatar class from the processing library
-    float angleX = 0; // Initial angle for the X-axis rotation
-    float angleY = 0; // Initial angle for the Y-axis rotation
+    Particle[] particles = new Particle[100]; // Array for particles
+    Avatar wv;
+    float angleX = 0;
+    float angleY = 0;
 
     public WaterVisual(Avatar wv) {
         this.wv = wv;
@@ -16,13 +17,21 @@ public class WaterVisual {
         for (int i = 0; i < numCircles; i++) {
             circles[i] = new Circle(wv.random(wv.width), wv.random(wv.height), wv);
         }
+        for (int i = 0; i < particles.length; i++) { // Initialize particles
+            particles[i] = new Particle(wv);
+        }
     }
 
     public void draw() {
-        wv.background(0); // Set background to black
+        wv.background(0);
         wv.noFill();
 
-        float audioLevel = wv.getSmoothedAmplitude() * 1000; // Scale factor for more sensitivity
+        float audioLevel = wv.getSmoothedAmplitude() * 1000;
+
+        for (Particle particle : particles) { // Update and display particles
+            particle.update();
+            particle.display();
+        }
 
         drawRotating3DOrb(audioLevel);
 
@@ -34,48 +43,44 @@ public class WaterVisual {
 
     void drawRotating3DOrb(float audioLevel) {
         wv.pushMatrix();
-        wv.translate(wv.width / 2, wv.height / 2); // Move to the center
-        wv.rotateX(angleX); // Apply rotation on X-axis
-        wv.rotateY(angleY); // Apply rotation on Y-axis
-        angleX += 0.05; // Increment angle for rotation over time on X-axis
-        angleY += 0.03; // Increment angle for rotation over time on Y-axis
-    
-        // Calculate orb size based on audio level
-        float orbSize = wv.map(audioLevel, 0, 1000, 100, 400); // Making the orb bigger
-    
+        wv.translate(wv.width / 2, wv.height / 2);
+        wv.rotateX(angleX);
+        wv.rotateY(angleY);
+        angleX += 0.05;
+        angleY += 0.03;
+
+        float orbSize = wv.map(audioLevel, 0, 1000, 100, 400);
+
         wv.lights();
         wv.noStroke();
-        wv.fill(210, 100, 100); // More saturated neon blue fill
+        wv.fill(210, 100, 100);
         wv.sphere(orbSize);
-    
-        // Increase the glow effect
-        wv.stroke(210, 100, 100, 50); // Glowing blue stroke
-        wv.strokeWeight(10); // Wider stroke for a visible glow effect
+
+        wv.stroke(210, 100, 100, 50);
+        wv.strokeWeight(10);
         for (int i = 1; i <= 15; i++) {
-            wv.sphere(orbSize + i * 2); // Creating a gradient glow effect
+            wv.sphere(orbSize + i * 2);
         }
-    
-        // Draw energy lines on the orb
+
         wv.strokeWeight(2);
-        wv.stroke(180, 100, 100); // Slightly different blue for visibility
-        for (int i = 0; i < 12; i++) { // Draw multiple lines
+        wv.stroke(180, 100, 100);
+        for (int i = 0; i < 12; i++) {
             wv.pushMatrix();
-            wv.rotateY(wv.radians(i * 30)); // Rotate each line around the Y-axis
-            wv.rotateX(wv.radians(45)); // Slight tilt
-            wv.line(-orbSize, 0, orbSize, 0); // Draw line through the sphere's diameter
+            wv.rotateY(wv.radians(i * 30));
+            wv.rotateX(wv.radians(45));
+            wv.line(-orbSize, 0, orbSize, 0);
             wv.popMatrix();
         }
-    
+
         wv.popMatrix();
     }
-    
 
     class Circle {
-        float x, y; // Center position of the circle
-        float diameter; // Initial diameter of the circle
-        float maxDiameter; // Maximum diameter based on audio level
-        float speed; // Speed at which the circle expands
-        Avatar wv; // Reference to main visual class for drawing
+        float x, y;
+        float diameter;
+        float maxDiameter;
+        float speed;
+        Avatar wv;
 
         Circle(float x, float y, Avatar wv) {
             this.x = x;
@@ -96,11 +101,42 @@ public class WaterVisual {
         }
 
         void display() {
-            float hue = wv.random(190, 250); // Variability in the blue spectrum
-            wv.stroke(hue, 100, 100); // Varied bright blue color
+            float hue = wv.random(190, 250);
+            wv.stroke(hue, 100, 100);
             wv.strokeWeight(2);
             wv.noFill();
             wv.ellipse(x, y, diameter, diameter);
+        }
+    }
+
+    class Particle {
+        float x, y, speedY;
+        float size;
+        Avatar wv;
+
+        Particle(Avatar wv) {
+            this.wv = wv;
+            respawn();
+        }
+
+        void update() {
+            y -= speedY;
+            if (y < -size) {
+                respawn();
+            }
+        }
+
+        void respawn() {
+            x = wv.random(wv.width);
+            y = wv.height + wv.random(50);
+            speedY = wv.random(1, 3);
+            size = wv.random(2, 5);
+        }
+
+        void display() {
+            wv.noStroke();
+            wv.fill(0, 0, 100);
+            wv.ellipse(x, y, size, size);
         }
     }
 }
