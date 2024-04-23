@@ -68,18 +68,22 @@ public class FireVisual {
         float centerY = fv.height / 2;
 
         // Number of blobs
-        int numBlobs = 50;
+        int numBlobs = 10;
 
         // Base size and intensity of the blobs
         float baseSize = 50;
         float baseIntensity = 60;
 
+        // Distance between ellipses
+        float distance = fv.width / numBlobs;
+
         // Draw blobs
         fv.noStroke();
         for (int i = 0; i < numBlobs; i++) {
             // Calculate position
-            float x = centerX + fv.random(-100, 100);
-            float y = centerY + fv.random(-100, 100);
+            float x = centerX + (i - numBlobs / 2) * distance;
+            float y = centerY;
+
             // Adjust size based on audio level
             float size = baseSize + amplitude * 200;
             // Adjust color based on audio level
@@ -87,8 +91,11 @@ public class FireVisual {
             fv.fill(hue, 100, baseIntensity + amplitude * 40);
             // Draw blob
             fv.ellipse(x, y, size / 2, size * 2);
-            fv.ellipse(x - 5, y / 2, size / 2, size);
 
+            // Draw additional ellipses going down till the edge of the screen
+            for (float dy = size * 2; y + dy < fv.height; dy += size * 2) {
+                fv.ellipse(x, y + dy, size / 2, size * 2);
+            }
         }
     }
 
