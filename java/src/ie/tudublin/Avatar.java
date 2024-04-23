@@ -75,8 +75,7 @@ public class Avatar extends Visual {
         if (visual == 1) {
         } else if (visual == 2) {
             fv.draw();
-<<<<<<< HEAD
-         } else if (visual == 3) {
+        } else if (visual == 3) {
             wv.draw();
             // } else if (visual == 4) {
             // .draw();
@@ -85,11 +84,9 @@ public class Avatar extends Visual {
             // } else if (visual == 6) {
             // .draw();
             // }
-=======
         } else if (visual == 3) {
         } else if (visual == 4) {
             mz.draw();
->>>>>>> 43f08e83c06b1b1868029469b95196a2c26d578d
         }
     }
 
@@ -98,4 +95,3 @@ public class Avatar extends Visual {
         throw new UnsupportedOperationException("Unimplemented method 'noise'");
     }
 }
-
