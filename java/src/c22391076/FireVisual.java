@@ -1,12 +1,14 @@
 package c22391076;
 
 import ie.tudublin.*;
+import processing.core.PApplet;
 
 public class FireVisual {
 
     float amplitude;
     Avatar fv;
     Fireball[] fireballs; // Array to store fireball objects
+    FireParticle[] fireParticles; // Array to store fire particles
     float n1;
     float n2;
 
@@ -15,6 +17,11 @@ public class FireVisual {
         fireballs = new Fireball[20]; // Create 20 fireballs
         for (int i = 0; i < fireballs.length; i++) {
             fireballs[i] = new Fireball();
+        }
+
+        fireParticles = new FireParticle[50]; // Create 50 fire particles
+        for (int i = 0; i < fireParticles.length; i++) {
+            fireParticles[i] = new FireParticle();
         }
     }
 
@@ -28,6 +35,13 @@ public class FireVisual {
             fireballs[i].update();
             fireballs[i].display();
         }
+
+        // Draw fire particles
+        for (int i = 0; i < fireParticles.length; i++) {
+            fireParticles[i].update();
+            fireParticles[i].display();
+        }
+
         float amplitude = fv.mySound.mix.level(); // Get the audio level
         fv.colorMode(fv.HSB, 360, 100, 100); // Set the color mode
 
@@ -53,16 +67,16 @@ public class FireVisual {
             float y3 = fv.cos(fv.radians(i)) * (500 / angle);
 
             // Draw circles and rectangles with colors based on the audio level
-            fv.fill(fv.map(amplitude, 0, 1, 0, 360), 100, 100);
+            fv.fill(fv.map(amplitude, 0, 1, 30, 0), 100, 100); // Yellow to red hues
             fv.ellipse(x, y, fv.mySound.left.get(i) * 10, fv.mySound.left.get(i) * 10);
 
-            fv.fill(fv.map(amplitude, 0, 1, 0, 360), 50, 100);
+            fv.fill(fv.map(amplitude, 0, 1, 30, 0), 50, 100); // Yellow to red hues
             fv.rect(x3, y3, fv.mySound.left.get(i) * 20, fv.mySound.left.get(i) * 10);
 
-            fv.fill(fv.map(amplitude, 0, 1, 0, 360), 100, 100);
+            fv.fill(fv.map(amplitude, 0, 1, 30, 0), 100, 100); // Yellow to red hues
             fv.rect(x, y, fv.mySound.right.get(i) * 10, fv.mySound.left.get(i) * 10);
 
-            fv.fill(fv.map(amplitude, 0, 1, 0, 360), 100, 100);
+            fv.fill(fv.map(amplitude, 0, 1, 30, 0), 100, 100); // Yellow to red hues
             fv.rect(x3, y3, fv.mySound.right.get(i) * 10, fv.mySound.right.get(i) * 20);
         }
 
@@ -75,30 +89,6 @@ public class FireVisual {
 
         // Draw fireball visual
         // drawFireballVisual();
-    }
-
-    private void drawFire() {
-        // Center of the screen
-        float centerX = fv.width / 2;
-        float centerY = fv.height / 2;
-
-        // Base size and intensity of the fire
-        float baseSize = 100;
-        float baseIntensity = 60;
-
-        // Draw fire particles
-        fv.noStroke();
-        for (int i = 0; i < 360; i += 10) {
-            float angle = fv.radians(i);
-            float radius = baseSize + amplitude * 200;
-            float x = centerX + fv.sin(angle) * radius;
-            float y = centerY + fv.cos(angle) * radius;
-
-            // Adjust color based on audio level
-            float hue = 30 + amplitude * 60;
-            fv.fill(hue, 100, baseIntensity + amplitude * 40);
-            fv.ellipse(x, y, 10, 10);
-        }
     }
 
     // Inner class representing a fireball
@@ -133,7 +123,45 @@ public class FireVisual {
 
         void display() {
             // Draw fireball
-            fv.fill(hue, 100, 255, 50); // Semi-transparent
+            fv.fill(hue, 200, 50, 50); // Semi-transparent
+            fv.ellipse(x, y, size, size);
+            fv.stroke(200, 0, 0);
+        }
+    }
+
+    // Inner class representing a fire particle
+    class FireParticle {
+        float x, y; // Position
+        float speedY; // Vertical speed
+        float size; // Size
+        int hue; // Color
+
+        FireParticle() {
+            // Random initial position spread out across the screen
+            x = fv.random(fv.width);
+            y = fv.random(fv.height / 2, fv.height);
+            // Random vertical speed
+            speedY = fv.random(-5, -1);
+            // Random size
+            size = fv.random(2, 5);
+            // Random red or orange color
+            hue = fv.floor(fv.random(0, 31)); // Red to orange hues
+        }
+
+        void update() {
+            // Move the particle upwards
+            y += speedY;
+            // Wrap around if the particle goes off-screen
+            if (y < 0) {
+                y = fv.height;
+                // Reset horizontal position randomly spread out across the screen
+                x = fv.random(fv.width);
+            }
+        }
+
+        void display() {
+            // Draw fire particle
+            fv.fill(hue, 100, 100);
             fv.ellipse(x, y, size, size);
         }
     }
