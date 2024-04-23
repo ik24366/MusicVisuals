@@ -1,8 +1,6 @@
 package c22391076;
 
-import ddf.minim.*;
 import ie.tudublin.*;
-import processing.core.PVector;
 import processing.core.PShape;
 
 public class FireVisual {

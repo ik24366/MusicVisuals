@@ -76,7 +76,6 @@ public class Avatar extends Visual {
 
         // Draw the currently selected visual
         if (visual == 1) {
-            ev.draw();
         } else if (visual == 2) {
             fv.draw();
         } else if (visual == 3) {
