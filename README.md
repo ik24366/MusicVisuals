@@ -5,7 +5,7 @@
 |-----------            |-----------        |-----------	|
 |Muhammad Zayan Zahid	|C22480092 			|Air  			|
 |Sean Laureta			|C22503056			|Earth       	|
-|Emma           		|C        			|Water 			|
+|Emma Radojcic         	|C22369396      	|Water 			|
 |Ismail					|C					|Fire			|
 
 
