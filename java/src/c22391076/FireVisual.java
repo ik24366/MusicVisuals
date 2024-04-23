@@ -31,6 +31,11 @@ public class FireVisual {
         // Draw fire in the center
         drawFire();
 
+        // Draw fireball visual
+        drawFireballVisual();
+
+        // Draw signal-like effect
+        drawSignalEffect();
     }
 
     private void drawFire() {
@@ -54,6 +59,63 @@ public class FireVisual {
             float hue = 30 + amplitude * 60;
             fv.fill(hue, 100, baseIntensity + amplitude * 40);
             fv.ellipse(x, y, 10, 10);
+        }
+    }
+
+    private void drawFireballVisual() {
+        // Center of the screen
+        float centerX = fv.width / 2;
+        float centerY = fv.height / 2;
+
+        // Number of blobs
+        int numBlobs = 50;
+
+        // Base size and intensity of the blobs
+        float baseSize = 50;
+        float baseIntensity = 60;
+
+        // Draw blobs
+        fv.noStroke();
+        for (int i = 0; i < numBlobs; i++) {
+            // Calculate position
+            float x = centerX + fv.random(-100, 100);
+            float y = centerY + fv.random(-100, 100);
+            // Adjust size based on audio level
+            float size = baseSize + amplitude * 200;
+            // Adjust color based on audio level
+            float hue = 30 + amplitude * 60;
+            fv.fill(hue, 100, baseIntensity + amplitude * 40);
+            // Draw blob
+            fv.ellipse(x, y, size / 2, size * 2);
+            fv.ellipse(x - 5, y / 2, size / 2, size);
+
+        }
+    }
+
+    private void drawSignalEffect() {
+        // Center of the screen
+        float centerX = fv.width / 2;
+        float centerY = fv.height / 2;
+
+        // Number of segments
+        int numSegments = 100;
+
+        // Segment size
+        float segmentSize = 20;
+
+        // Amplitude multiplier
+        float ampMultiplier = 5;
+
+        fv.strokeWeight(2);
+        fv.noFill();
+        fv.stroke(0, 100, 100); // Red color
+        for (int i = 0; i < numSegments; i++) {
+            float x1 = centerX - segmentSize / 2 + i * segmentSize;
+            float y1 = centerY + amplitude * ampMultiplier;
+            float x2 = x1 + segmentSize;
+            float y2 = centerY + amplitude * ampMultiplier;
+
+            fv.line(x1, y1, x2, y2);
         }
     }
 
