@@ -65,8 +65,6 @@ public class Avatar extends Visual {
     }
 
     public void draw() {
-        System.out.println(keyCode); // Print the ASCII code of the key pressed to the console
-
         background(0); // Set the background color to black
         calculateFrequencyBands(); // Calculate the frequency bands of the audio
         calculateAverageAmplitude(); // Calculate the average amplitude of the audio
