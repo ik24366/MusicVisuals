@@ -17,11 +17,13 @@ public class Avatar extends Visual {
     AirVisual mz;
     FireVisual fv;
     WaterVisual wv;
+    EarthVisual ev;
 
     public void settings() {
         size(1920, 1080, P3D); // Set the size and renderer of the sketch
         fullScreen(SPAN);
     }
+
 
     public void setup() {
         colorMode(HSB); // Set the color mode of the sketch
@@ -49,6 +51,7 @@ public class Avatar extends Visual {
         mz = new AirVisual(this);
         fv = new FireVisual(this);
         wv = new WaterVisual(this);
+        ev = new EarthVisual(this);
     }
 
     public void keyPressed() {
@@ -61,7 +64,7 @@ public class Avatar extends Visual {
             visual = 3;
         } else if (keyCode == '4') {
             visual = 4;
-        } else if (keyCode == '5') { // Exit the sketch if the number 7 is pressed
+        } else if (keyCode == '5') { // Exit the sketch if the number 5 is pressed
             exit();
         }
     }
@@ -73,25 +76,13 @@ public class Avatar extends Visual {
 
         // Draw the currently selected visual
         if (visual == 1) {
+            ev.draw();
         } else if (visual == 2) {
             fv.draw();
         } else if (visual == 3) {
             wv.draw();
-            // } else if (visual == 4) {
-            // .draw();
-            // } else if (visual == 5) {
-            // .draw();
-            // } else if (visual == 6) {
-            // .draw();
-            // }
-        } else if (visual == 3) {
         } else if (visual == 4) {
             mz.draw();
         }
-    }
-
-    public float noise(double d, double e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'noise'");
     }
 }
