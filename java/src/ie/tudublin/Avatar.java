@@ -6,7 +6,6 @@ import c22480092.*;
 import c22503056.*;
 import c22369396.*;
 
-
 public class Avatar extends Visual {
 
     Minim minim;
@@ -16,6 +15,7 @@ public class Avatar extends Visual {
 
     // Declare the visual variables without initializing them
     AirVisual mz;
+    FireVisual fv;
 
     public void settings() {
         size(1920, 1080, P3D); // Set the size and renderer of the sketch
@@ -35,16 +35,18 @@ public class Avatar extends Visual {
 
         // Start playing the audio
         getAudioPlayer().play();
-        smooth(); 
-        
+        smooth();
+
         minim = new Minim(this);
         mySound = minim.loadFile("Avatar.mp3");
         mySound.play();
     }
 
     public void initializeVisuals() {
-        // Initialize each visual and pass a reference to this sketch and the AudioPlayer
+        // Initialize each visual and pass a reference to this sketch and the
+        // AudioPlayer
         mz = new AirVisual(this);
+        fv = new FireVisual(this);
     }
 
     public void keyPressed() {
@@ -72,17 +74,17 @@ public class Avatar extends Visual {
         // Draw the currently selected visual
         if (visual == 1) {
             mz.draw();
+        } else if (visual == 2) {
+            fv.draw();
+            // } else if (visual == 3) {
+            // .draw();
+            // } else if (visual == 4) {
+            // .draw();
+            // } else if (visual == 5) {
+            // .draw();
+            // } else if (visual == 6) {
+            // .draw();
+            // }
         }
-        // } else if (visual == 2) {
-        //     .draw();
-        // } else if (visual == 3) {
-        //     .draw();
-        // } else if (visual == 4) {
-        //     .draw();
-        // } else if (visual == 5) {
-        //     .draw();
-        // }  else if (visual == 6) {
-        //     .draw();
-        //}
     }
-    }
+}
