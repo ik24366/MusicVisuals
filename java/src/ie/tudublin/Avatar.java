@@ -70,19 +70,12 @@ public class Avatar extends Visual {
         calculateAverageAmplitude(); // Calculate the average amplitude of the audio
 
         // Draw the currently selected visual
-        if (visual == 4) {
-            mz.draw();
+        if (visual == 1) {
         } else if (visual == 2) {
             fv.draw();
-            // } else if (visual == 3) {
-            // .draw();
-            // } else if (visual == 4) {
-            // .draw();
-            // } else if (visual == 5) {
-            // .draw();
-            // } else if (visual == 6) {
-            // .draw();
-            // }
+        } else if (visual == 3) {
+        } else if (visual == 4) {
+            mz.draw();
         }
     }
 }
