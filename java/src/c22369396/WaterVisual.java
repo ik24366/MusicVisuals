@@ -95,7 +95,7 @@ public class WaterVisual {
         float maxDiameter;
         float speed;
         Avatar wv;
-
+    
         Circle(float x, float y, Avatar wv) {
             this.x = x;
             this.y = y;
@@ -104,7 +104,7 @@ public class WaterVisual {
             this.maxDiameter = wv.random(100, 300);
             this.speed = wv.random(1, 5);
         }
-
+    
         void update(float audioLevel) {
             diameter += speed;
             if (diameter > maxDiameter || diameter > wv.width / 10) {
@@ -113,44 +113,49 @@ public class WaterVisual {
                 speed = wv.random(1, 5);
             }
         }
-
+    
         void display() {
             float hue = wv.random(190, 250);
-            wv.stroke(hue, 100, 100);
+            int alpha = 120; // Adjusted for visible but transparent fill
+            wv.stroke(hue, 100, 100, alpha);
             wv.strokeWeight(2);
-            wv.noFill();
+            // Applying a semi-transparent fill
+            wv.fill(hue, 100, 100, 80); // Fill with transparency
             wv.ellipse(x, y, diameter, diameter);
         }
     }
+    
 
     class Particle {
         float x, y, speedY;
         float size;
         Avatar wv;
-
+    
         Particle(Avatar wv) {
             this.wv = wv;
             respawn();
         }
-
+    
         void update() {
             y -= speedY;
             if (y < -size) {
                 respawn();
             }
         }
-
+    
         void respawn() {
             x = wv.random(wv.width);
             y = wv.height + wv.random(50);
             speedY = wv.random(1, 3);
             size = wv.random(2, 5);
         }
-
+    
         void display() {
             wv.noStroke();
-            wv.fill(0, 0, 100);
+            // Set the fill to be slightly transparent by adjusting the alpha value
+            wv.fill(255, 255, 255, 127); // Alpha set to 127, making it 50% transparent
             wv.ellipse(x, y, size, size);
         }
     }
+    
 }

@@ -95,3 +95,4 @@ public class Avatar extends Visual {
         throw new UnsupportedOperationException("Unimplemented method 'noise'");
     }
 }
+
