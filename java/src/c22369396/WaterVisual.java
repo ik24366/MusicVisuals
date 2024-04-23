@@ -10,6 +10,7 @@ public class WaterVisual {
     int numCircles = 200;
     Circle[] circles = new Circle[numCircles];
     Particle[] particles = new Particle[100];
+    Wave[] waves = new Wave[4]; // Four edges of the screen
     Avatar wv;
     float angleX = 0;
     float angleY = 0;
@@ -23,6 +24,11 @@ public class WaterVisual {
         for (int i = 0; i < particles.length; i++) {
             particles[i] = new Particle(wv);
         }
+        // Initialize waves for each screen edge
+        waves[0] = new Wave(wv, 0); // Top
+        waves[1] = new Wave(wv, 1); // Right
+        waves[2] = new Wave(wv, 2); // Bottom
+        waves[3] = new Wave(wv, 3); // Left
     }
 
     public void draw() {
@@ -42,7 +48,13 @@ public class WaterVisual {
             circle.update(audioLevel);
             circle.display();
         }
+
+        for (Wave wave : waves) {
+            wave.update(audioLevel);
+            wave.display();
+        }
     }
+
 
     void drawRotating3DOrb(float audioLevel) {
         wv.pushMatrix();
@@ -158,4 +170,70 @@ public class WaterVisual {
         }
     }
     
+}
+
+class Wave {
+    Avatar wv;
+    int edge;
+    float amplitude = 0;
+    float noiseOffset = 0; // Offset for Perlin noise
+
+    Wave(Avatar wv, int edge) {
+        this.wv = wv;
+        this.edge = edge;
+    }
+
+    void update(float audioLevel) {
+        // Scale the amplitude more aggressively based on the audio level
+        amplitude = PApplet.map(audioLevel, 0, 1000, 0, 150) * (0.5f + wv.noise(noiseOffset));
+        noiseOffset += 0.02; // Increase the rate of change in noise pattern
+    }
+
+    void display() {
+        int colorValue = (int) PApplet.map(amplitude, 0, 150, 180, 360); // Adjust the color range for greater sensitivity
+        wv.stroke(colorValue, 255, 255);
+        wv.strokeWeight(4);
+        wv.noFill();
+
+        float baseLine; // This will determine the base line of the wave
+        float waveHeight; // This is a multiplier for the wave amplitude
+        wv.beginShape();
+
+        switch (edge) {
+            case 0: // Top
+                baseLine = 0;
+                waveHeight = -1; // Negative because we're going upwards
+                for (int x = 0; x < wv.width; x += 5) {
+                    float y = baseLine + waveHeight * amplitude * wv.noise(noiseOffset + x * 0.05f);
+                    wv.vertex(x, y);
+                }
+                break;
+            case 1: // Right
+                baseLine = wv.width;
+                waveHeight = -1; // Negative to go left
+                for (int y = 0; y < wv.height; y += 5) {
+                    float x = baseLine + waveHeight * amplitude * wv.noise(noiseOffset + y * 0.05f);
+                    wv.vertex(x, y);
+                }
+                break;
+            case 2: // Bottom
+                baseLine = wv.height;
+                waveHeight = 1; // Positive to go downwards
+                for (int x = 0; x < wv.width; x += 5) {
+                    float y = baseLine + waveHeight * amplitude * wv.noise(noiseOffset + x * 0.05f);
+                    wv.vertex(x, y);
+                }
+                break;
+            case 3: // Left
+                baseLine = 0;
+                waveHeight = 1; // Positive to go right
+                for (int y = 0; y < wv.height; y += 5) {
+                    float x = baseLine + waveHeight * amplitude * wv.noise(noiseOffset + y * 0.05f);
+                    wv.vertex(x, y);
+                }
+                break;
+        }
+
+        wv.endShape();
+    }
 }
