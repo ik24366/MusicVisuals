@@ -101,31 +101,6 @@ public class FireVisual {
         }
     }
 
-    public void drawFireballVisual() {
-        // Center of the screen
-        float centerX = fv.width / 2;
-        float centerY = fv.height / 2;
-
-        // Calculate size based on audio level
-        float size = 50 + amplitude * 200;
-        // Calculate rotation speed based on audio level
-        float rotationSpeed = (float) (amplitude * 0.1);
-
-        // Draw flashy fireball
-        fv.noStroke();
-        for (int i = 0; i < 360; i += 20) {
-            float angle = fv.radians(i);
-            float radius = size * 0.5f + amplitude * 100;
-            float x = centerX + fv.sin(angle) * radius;
-            float y = centerY + fv.cos(angle) * radius;
-
-            // Adjust color based on audio level
-            float hue = 30 + amplitude * 60;
-            fv.fill(hue, 100, 100);
-            fv.ellipse(x, y, size * 0.2f, size * 0.2f);
-        }
-    }
-
     // Inner class representing a fireball
     class Fireball {
         float x, y; // Position
