@@ -9,26 +9,48 @@ public class EarthVisual {
     float yOffset = 0; // Offset for the heart rate monitor line
     float totalAmplitude = 0;
     
+    float[] particleX;
+    float[] particleY;
+    float[] particleSpeedY;
+    float[] particleSize;
+    int numBackgroundParticles = 100;
 
     public EarthVisual(Avatar ev) {
         this.ev = ev;
+
+        particleX = new float[numBackgroundParticles];
+        particleY = new float[numBackgroundParticles];
+        particleSpeedY = new float[numBackgroundParticles];
+        particleSize = new float[numBackgroundParticles];
+        initializeBackgroundParticles();
+    }
+
+    private void initializeBackgroundParticles() {
+        for (int i = 0; i < numBackgroundParticles; i++) {
+            particleX[i] = ev.random(ev.width);
+            particleY[i] = ev.random(ev.height);
+            particleSpeedY[i] = ev.random(0.5f, 2.0f); // Random speed for upward movement
+            particleSize[i] = ev.random(2, 5); // Random size for visual variety
+        }
     }
 
     public void draw() {
         ev.background(0);
         ev.lights();
+        drawBackgroundParticles(); // Draw the particles before other visual elements for better blending
         float currentAmplitude = ev.getSmoothedAmplitude();
         yOffset = currentAmplitude * 200;
-        totalAmplitude += currentAmplitude; // Accumulate amplitude over time
-
+        totalAmplitude += currentAmplitude;
+    
         drawSpiral();
         ev.pushMatrix();
-        ev.translate(ev.width / 2, ev.height, 0); // Start the tree from the bottom center of the canvas
-        float initialBranchLength = PApplet.map(totalAmplitude, 0, 50, 150, 300); // Scale initial branch length
-        drawTree(initialBranchLength, 255); // Use dynamic initial length
+        ev.translate(ev.width / 2, ev.height, 0);
+        float initialBranchLength = PApplet.map(totalAmplitude, 0, 50, 150, 300);
+        drawTree(initialBranchLength, 255);
         ev.popMatrix();
         drawColumns();
     }
+    
 
     private void drawSpiral() {
         float step = 10; // Step size for drawing the monitor
@@ -112,5 +134,21 @@ public class EarthVisual {
             ev.ellipse(px, py, particleSize, particleSize);
         }
     }
+
+    private void drawBackgroundParticles() {
+        ev.noStroke();
+        ev.fill(255, 255, 255, 150); // Semi-transparent white particles
+        for (int i = 0; i < numBackgroundParticles; i++) {
+            ev.ellipse(particleX[i], particleY[i], particleSize[i], particleSize[i]);
+            particleY[i] -= particleSpeedY[i]; // Move particles upward
+    
+            // Reset particles to the bottom of the screen when they go out of view
+            if (particleY[i] < 0) {
+                particleY[i] = ev.height + particleSize[i];
+                particleX[i] = ev.random(ev.width); // Re-randomize the x position
+            }
+        }
+    }
+    
 
 }
