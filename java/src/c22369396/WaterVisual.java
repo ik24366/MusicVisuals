@@ -10,7 +10,7 @@ public class WaterVisual {
     int numCircles = 200;
     Circle[] circles = new Circle[numCircles];
     Particle[] particles = new Particle[100];
-    Wave[] waves = new Wave[4]; // Four edges of the screen
+    Wave[] waves = new Wave[4];
     Avatar wv;
     float angleX = 0;
     float angleY = 0;
@@ -24,11 +24,10 @@ public class WaterVisual {
         for (int i = 0; i < particles.length; i++) {
             particles[i] = new Particle(wv);
         }
-        // Initialize waves for each screen edge
-        waves[0] = new Wave(wv, 0); // Top
-        waves[1] = new Wave(wv, 1); // Right
-        waves[2] = new Wave(wv, 2); // Bottom
-        waves[3] = new Wave(wv, 3); // Left
+        waves[0] = new Wave(wv, 0);
+        waves[1] = new Wave(wv, 1); 
+        waves[2] = new Wave(wv, 2); 
+        waves[3] = new Wave(wv, 3); 
     }
 
     public void draw() {
@@ -66,7 +65,7 @@ public class WaterVisual {
 
         float orbSize = wv.map(audioLevel, 0, 1000, 100, 400);
 
-        // Enhanced lighting effect
+        //enhanced lighting effect
         wv.directionalLight(255, 255, 255, -1, -1, -1);
         wv.spotLight(255, 255, 255, wv.width / 2, wv.height, 600, 0, 0, -1, PI / 2, 2);
 
@@ -128,11 +127,11 @@ public class WaterVisual {
     
         void display() {
             float hue = wv.random(190, 250);
-            int alpha = 120; // Adjusted for visible but transparent fill
+            int alpha = 120; //ajusted for visible but transparent fill
             wv.stroke(hue, 100, 100, alpha);
             wv.strokeWeight(2);
-            // Applying a semi-transparent fill
-            wv.fill(hue, 100, 100, 80); // Fill with transparency
+            //applying a semi-transparent fill
+            wv.fill(hue, 100, 100, 80); 
             wv.ellipse(x, y, diameter, diameter);
         }
     }
@@ -164,8 +163,7 @@ public class WaterVisual {
     
         void display() {
             wv.noStroke();
-            // Set the fill to be slightly transparent by adjusting the alpha value
-            wv.fill(255, 255, 255, 127); // Alpha set to 127, making it 50% transparent
+            wv.fill(255, 255, 255, 127);
             wv.ellipse(x, y, size, size);
         }
     }
@@ -176,7 +174,7 @@ class Wave {
     Avatar wv;
     int edge;
     float amplitude = 0;
-    float noiseOffset = 0; // Offset for Perlin noise
+    float noiseOffset = 0; //offset for Perlin noise
 
     Wave(Avatar wv, int edge) {
         this.wv = wv;
@@ -184,19 +182,18 @@ class Wave {
     }
 
     void update(float audioLevel) {
-        // Scale the amplitude more aggressively based on the audio level
         amplitude = PApplet.map(audioLevel, 0, 1000, 0, 150) * (0.5f + wv.noise(noiseOffset));
-        noiseOffset += 0.02; // Increase the rate of change in noise pattern
+        noiseOffset += 0.02; //increase the rate of change in noise pattern
     }
 
     void display() {
-        int colorValue = (int) PApplet.map(amplitude, 0, 150, 180, 360); // Adjust the color range for greater sensitivity
+        int colorValue = (int) PApplet.map(amplitude, 0, 150, 180, 360); //adjust the color range for greater sensitivity
         wv.stroke(colorValue, 255, 255);
         wv.strokeWeight(4);
         wv.noFill();
 
-        float baseLine; // This will determine the base line of the wave
-        float waveHeight; // This is a multiplier for the wave amplitude
+        float baseLine; //base line of the wave
+        float waveHeight; //multiplier for the wave amplitude
         wv.beginShape();
 
         switch (edge) {
@@ -212,7 +209,7 @@ class Wave {
                 baseLine = wv.width;
                 waveHeight = -1; //negative to go left
                 for (int y = 0; y < wv.height; y += 5) {
-                    float x = baseLine + waveHeight * amplitude * wv.noise(noiseOffset + y * 0.25f);
+                    float x = baseLine + waveHeight * amplitude * wv.noise(noiseOffset + y * 0.05f);
                     wv.vertex(x, y);
                 }
                 break;
