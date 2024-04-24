@@ -41,7 +41,7 @@ remeber to add a pic and explain your code
 - fireballs: Array for simulating fireballs.
 - fireParticles: Array for simulating rising fire particles.
 - n1 and n2: Control variables for movement.
-2.Constructor:
+2. Draw Method:
 - Gets audio level and sets color mode.
 - Draws fireballs and fire particles.
 - Iterates through audio buffer, calculating positions based on current frame and audio level.
