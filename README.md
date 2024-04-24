@@ -15,10 +15,10 @@ This audio music visualizer features four distinct elemental visuals representin
 # Video goes heya
 
 # Instructions
--To run these Music Visuals, you do these following steps:
--Debug and run the Java file called Main.java.
--Press 1 = Earth, 2 = Fire, 3= Water, 4 = Air, keys to run each Music Visuals.
--By pressing the 5 key you will exit the program.
+- To run these Music Visuals, you do these following steps:
+- Debug and run the Java file called Main.java.
+- Press 1 = Earth, 2 = Fire, 3= Water, 4 = Air, keys to run each Music Visuals.
+- By pressing the 5 key you will exit the program.
 
 
 # How it works
