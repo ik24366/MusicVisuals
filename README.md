@@ -76,20 +76,19 @@ There are five main methods to the code:
 
 ### Water
 ![An image](images/Water.png)
-This Java program uses the Processing framework to paint a picture with music, focusing on the theme of water.The visual output presents circles resembling raindrops, an orb that simulates a bubble, and waves that add to the overall water theme.
+My Java program uses the Processing framework to paint a picture with music, focusing on the theme of water. The visual output presents circles resembling raindrops, an orb that simulates a bubble, and waves that add to the overall water theme.
 
-The essence of the program is encapsulated within classes such as Circle.java, Particle.java, and Wave.java, which together create a dynamic aquatic landscape. The movement and appearance of these elements are driven by properties like size, growth rate, and position, which are adjusted in real-time based on the audio input to emulate the natural behavior of water.
+The program has classes such as Circle.java, Particle.java, and Wave.java, which together create a dynamic aquatic landscape. The movement and appearance of these elements are driven by properties like size, growth rate, and position, which are adjusted in real-time based on the audio input to replicate the natural behaviours of water.
 
-An instance of the main WaterVisual class brings the visualization to life. It's here that the central orb, drawn by the drawRotating3DOrb function, becomes the focal point, pulsating and spinning in a mesmerizing dance that syncs with the music. Enhanced by the Processing lighting functions, it glows like a mysterious object under the sea.
+An instance of the main WaterVisual class brings the visualization to life. Here, the central orb, drawn by the drawRotating3DOrb function, becomes the focal point, pulsating and spinning in sync with the music. Its enhanced by the Processing lighting functions,making it glow like a mysterious object under the sea.
 
-The draw method is the beating heart of the visualization. It begins by painting a dark background to mimic the depths of the ocean, over which the raindrop circles expand and the particles rise like tiny bubbles. This backdrop ensures smooth transitions between frames for a cohesive visual experience.
+The draw method is the important part of the visualization. It paints a dark background to mimic the depths of the ocean, over which the raindrop circles expand and the particles rise like tiny bubbles. This backdrop ensures smooth transitions between frames.
 
-The program's use of vibrant HSB colors brings the scene to life. The audio's amplitude is carefully analyzed to modulate the brightness and saturation, making the visualization pulse with the music. This is evident as the circles—our simulated raindrops—grow in size and the particles drift upwards, reacting to the ebbs and flows of the audio track.
+The program's use of vibrant HSB colors brings the scene to life. The audio's amplitude is carefully analyzed to modulate the brightness and saturation, making the visualization pulse with the music. This is evident as the circles, meant to be simulated raindrops, grow in size and the particles drift upwards, reacting to the flow of the audio.
 
-In terms of rendering the shapes, the program employs loops that iterate through angles to plot the points of the circles, much like how a previous version might have drawn hexagons. The calculated coordinates ensure that each circle expands outward from its origin, and with added rotation around the z-axis, the visualization achieves a sense of depth and fluid motion.
+In terms of rendering the shapes, the program employs loops that iterate through angles to plot the points of the circles. The calculated coordinates ensure that each circle expands outward from its origin, and with added rotation around the z-axis, the visualization adds a sense of depth and fluid motion.
 
-The properties that dictate motion—such as the angle increments and speed—are continuously updated, giving the impression that the water elements are swaying to the music. The overall effect is a serene and captivating visual representation of the chosen audio, mirroring the tranquil yet unpredictable nature of water.
-
+The properties that dictate motion such as the angle increments and speed are continuously updated, giving the impression that the water elements are swaying to the music. The overall effect is a peaceful and engaging visual that matches the chosen music, reflecting the calm but changeable nature of water.
 ### Air
 
 ![An image](images/Air.png)
@@ -109,6 +108,9 @@ How the method ShapeDraw draws hexagons is through a loop that iterates through 
 # What I am most proud of in the assignment
 
 #### Emma
+I am most proud of 
+
+
 #### Sean
 #### Muhammad Z
 
