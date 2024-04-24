@@ -47,6 +47,14 @@ remeber to add a pic and explain your code
 - Iterates through audio buffer, calculating positions based on current frame and audio level.
 - Draws shapes (circles and rectangles) based on audio level, using left and right channels.
 - Increments control variables for movement.
+3. Fireball Class:
+- Represents a fireball with position, size, speed, and color.
+- Updates size and position, randomizing if beyond screen.
+- Displays fireball as a semi-transparent ellipse with a red stroke.
+4. FireParticle Class:
+- Represents a rising fire particle with position, speed, size, and color.
+- Updates position by moving upwards, wrapping around if off-screen.
+- Displays particle as an ellipse with a color from yellow to orange.
 
 ### Water
 she? stuff
