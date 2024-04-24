@@ -23,6 +23,8 @@ This audio music visualizer features four distinct elemental visuals representin
 
 # How it works
 
+Our music visualizer project is structured using individual files holding our repescted visuls. The main Java file, Main.java, executes our code, while Avater.java combines the individual visual from separate the seperate files. each file is named after our student number.
+
 # What I am most proud of in the assignment
 
 # Markdown Tutorial
