@@ -5,22 +5,21 @@
 |-----------            |-----------        |-----------	|---|
 |Muhammad Zayan Zahid	|C22480092 			|Air  			|momo858|
 |Sean Laureta			|C22503056			|Earth       	||	
-|Emma Radojcic         	|C22369396      	|Water 			| Danielr147 & Emmaradojcic |
-|Ismail					|C					|Fire			||
-
-
-## Instructions
-- Fork this repository and use it a starter project for your assignment
-- Create a new package named your student number and put all your code in this package.
-- You should start by creating a subclass of ie.tudublin.Visual
-- There is an example visualiser called MyVisual in the example package
-- Check out the WaveForm and AudioBandsVisual for examples of how to call the Processing functions from other classes that are not subclasses of PApplet
+|Emma Radojcic         	|C22369396      	|Water 			| (Danielr147 & Emmaradojcic) |
+|Ismail	Khan			|C22391076				|Fire			|ik24366|
 
 # Description of the assignment 
 
-This audio music visualizer features four distinct elemental visuals representing Fire, Water, Earth, and Air. Each visual responds to a fan-made remix of the "Avatar: The Last Airbender" soundtrack by Samuel Kim Music.
+This audio music visualizer features four distinct elemental visuals representing *Fire, Water, Earth, and Air*. Each visual responds to a fan-made remix of the "Avatar: The Last Airbender" soundtrack by Samuel Kim Music.
+
+# Video goes heya
 
 # Instructions
+-To run these Music Visuals, you do these following steps:
+-Debug and run the Java file called Main.java.
+-Press 1 = Earth, 2 = Fire, 3= Water, 4 = Air, keys to run each Music Visuals.
+-By pressing the 5 key you will exit the program.
+
 
 # How it works
 
