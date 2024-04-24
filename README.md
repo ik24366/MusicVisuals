@@ -4,9 +4,9 @@
 | Name                  | Student Number    | Music Visuals | Github users|
 |-----------            |-----------        |-----------	|---|
 |Muhammad Zayan Zahid	|C22480092 			|Air  			|momo858|
-|Sean Laureta			|C22503056			|Earth       	||	
+|Sean Laureta			|C22503056			|Earth       	|seanl1213|	
 |Emma Radojcic         	|C22369396      	|Water 			| Danielr147 & Emmaradojcic |
-|Ismail	Khan			|C22391076				|Fire			|ik24366|
+|Ismail	Khan			|C22391076			|Fire			|ik24366|
 
 # Description of the assignment 
 
@@ -29,13 +29,18 @@ We created a class called Avatar that extends the Java Visuals file. This class 
 
 ### Earth
 your stuff
-remeber to add a pic and explain your code 
+remeber to add a pic and explain your code
+
+![An image](images/Earth.png)
+
 ### Fire
 his stuff
 ![An image](images/fire.png)
+
 ### Water
 she? stuff
 remeber to add a pic and explain your code
+
 ### Air
 
 ![An image](images/Air.png)
