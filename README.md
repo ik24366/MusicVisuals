@@ -109,7 +109,7 @@ How the method ShapeDraw draws hexagons is through a loop that iterates through 
 # What I am most proud of in the assignment
 
 #### Emma
-I am most proud of 
+I am most proud of creating art in a different, creative medium like code. I was proud of overcoming different challenges as trying to portray images I had in mind for what I wanted the art to look like, was difficult to implement using code. This whole assignment helped me grow as a programmer and has boosted my confidence in both my technical and creative skills. I was also proud of how I could work with a team to make a cohesive project. It was satisfying seeing the final creation.
 
 
 #### Sean 
