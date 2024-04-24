@@ -12,7 +12,7 @@
 
 This audio music visualizer features four distinct elemental visuals representing *Fire, Water, Earth, and Air*. Each visual responds to a fan-made remix of the "Avatar: The Last Airbender" soundtrack by Samuel Kim Music.
 
-# Video goes heya
+## Video goes heya
 
 # Instructions
 - To run these Music Visuals, you do these following steps:
@@ -26,6 +26,17 @@ This audio music visualizer features four distinct elemental visuals representin
 Our music visualizer project is structured using individual files holding our respective visuals. The main Java file, Main.java, executes our code, while Avatar.java combines the individual visuals from separate files. Each file is named after our student number. Under our student number folders, we have contained each of our visuals, which makes it easier to locate each one.
 
 We created a class called Avatar that extends the Java Visuals file. This class takes all the functions and imports we have created and applied in Visuals to be extended to our Avatar file. We then declared each variable without initializing them, assigning short names to our visuals, such as referring to the Earth Visual as "ev". In our setup, we read in our song and prepared it with different functions to be used in our visuals. We used keyboard inputs from 1 to 5 to run each of our visuals.
+
+### Earth
+your stuff
+### Fire
+his stuff
+### Water
+she? stuff
+### Air
+my stuff
+
+
 
 # What I am most proud of in the assignment
 
