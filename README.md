@@ -5,7 +5,7 @@
 |-----------            |-----------        |-----------	|---|
 |Muhammad Zayan Zahid	|C22480092 			|Air  			|momo858|
 |Sean Laureta			|C22503056			|Earth       	||	
-|Emma Radojcic         	|C22369396      	|Water 			| (Danielr147 & Emmaradojcic) |
+|Emma Radojcic         	|C22369396      	|Water 			| Danielr147 & Emmaradojcic |
 |Ismail					|C					|Fire			||
 
 
@@ -16,7 +16,9 @@
 - There is an example visualiser called MyVisual in the example package
 - Check out the WaveForm and AudioBandsVisual for examples of how to call the Processing functions from other classes that are not subclasses of PApplet
 
-# Description of the assignment
+# Description of the assignment 
+
+This audio music visualizer features four distinct elemental visuals representing Fire, Water, Earth, and Air. Each visual responds to a fan-made remix of the "Avatar: The Last Airbender" soundtrack by Samuel Kim Music.
 
 # Instructions
 
