@@ -40,7 +40,8 @@ remeber to add a pic and explain your code
 
 ![An image](images/Air.png)
 
-
+This java Program creates 2D audio visualization using the Processing library and Minim audio library. The program displays Hexagons that change size and color based on the audio levels of Avater.mp3, The code uses two other classes ShapeDraw.java and Lightning.java to visualise a hurican of hexagons that produce lightning.
+The properties of Air.java are spinAngle a variable used to control the rotation angle, motion a float variable used to add dynamic motion, motionSpeed used to contole the speed of the motion 
 
 
 # What I am most proud of in the assignment
