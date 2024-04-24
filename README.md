@@ -32,7 +32,7 @@ your stuff
 remeber to add a pic and explain your code 
 ### Fire
 his stuff
-remeber to add a pic and explain your code
+![An image](images/fire.png)
 ### Water
 she? stuff
 remeber to add a pic and explain your code
