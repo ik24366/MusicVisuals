@@ -4,7 +4,7 @@ import ie.tudublin.*;
 public class AirVisual {
 
     
-        float spinAngle; // Used to rotate the ellipses
+        float spinAngle; // Used to rotate the hexagon
         float motion; // Used to create motion in the visualization
         float motionSpeed; // Used to control the speed of motion
         float speed; // Used to control the speed of motion
@@ -13,7 +13,7 @@ public class AirVisual {
         Lightning lightning; // Instance of Lightning class
 
     
-        // Constructor that takes an instance of the Combined class as a parameter
+        // Constructor that takes an instance of the Avater class as a parameter
         public AirVisual(Avatar av){
             this.av = av;
             this.lightning = new Lightning(av); // Initialize the Lightning class
@@ -36,7 +36,7 @@ public class AirVisual {
                 float brightness = av.map(amplitude, 0, 150, 100, 255); // Brightness based on amplitude
                 av.fill(colorValue, 100, brightness); // Set the fill color based on index and amplitude
                 ShapeDraw.drawHexagon(av, i, amplitude); // Call to static method from ShapeDrawer
-                av.rotateZ((float) (spinAngle * -av.PI / 4 * 0.05)); // Rotate the ellipse around the z-axis
+                av.rotateZ((float) (spinAngle * -av.PI / 4 * 0.05)); // Rotate the hexagon around the z-axis
             }
     
             // Add a new motion to the visualization
