@@ -213,7 +213,7 @@ class Wave {
                     wv.vertex(x, y);
                 }
                 break;
-            case 2: // Bottom
+            case 2: 
                 baseLine = wv.height;
                 waveHeight = 1; //positive to go downwards
                 for (int x = 0; x < wv.width; x += 5) {
@@ -221,9 +221,9 @@ class Wave {
                     wv.vertex(x, y);
                 }
                 break;
-            case 3: // Left
+            case 3: 
                 baseLine = 0;
-                waveHeight = 1; // Positive to go right
+                waveHeight = 1; //positive to go right
                 for (int y = 0; y < wv.height; y += 5) {
                     float x = baseLine + waveHeight * amplitude * wv.noise(noiseOffset + y * 0.05f);
                     wv.vertex(x, y);
