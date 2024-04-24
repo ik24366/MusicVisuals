@@ -12,7 +12,7 @@
 
 This audio music visualizer features four distinct elemental visuals representing *Fire, Water, Earth, and Air*. Each visual responds to a fan-made remix of the "Avatar: The Last Airbender" soundtrack by Samuel Kim Music.
 
-## Video goes heya
+## Video
 [![YouTube](images/Water.png)](https://www.youtube.com/watch?v=hNwvNMZ7j54)
 
 # Instructions
@@ -121,6 +121,8 @@ I am happy that the code ended up working and I got to learn how to work as a gr
 What I'm most proud of in this assignment was probably learning that I can make art with code. I never expected that coding, which I always thought was analytical and straightforward, can bend and mold into an art form that can produce amazing visuals that only your imagination can limit. Another thing I'm proud of is learning how to use Processing and math with Processing to create amazing visual art, especially using sine and cosine to make spirals that look really trippy and hypnotizing to watch.
 
 #### Ismail
+
+What I'm most proud of is how we had a vision of making a visual based on the show Avatar and how we conveniently split the four elements between us, giving everyone their unique and individual touch through their element, which in the end meshed very well into a project I am proud to be a part of. I learned many lessons through the troubles and advantages of working in a team and having a shared vision.
 
 
 
