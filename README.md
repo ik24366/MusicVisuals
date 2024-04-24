@@ -2,10 +2,10 @@
 
 
 | Name                  | Student Number    | Music Visuals | Github users|
-|-----------            |-----------        |-----------	|---|
+|-----------            |-----------        |-----------	|-------------|
 |Muhammad Zayan Zahid	|C22480092 			|Air  			|momo858|
-|Sean Laureta			|C22503056			|Earth       	||
-|Emma Radojcic         	|C22369396      	|Water 			| Danielr147 & Emmaradojcic |
+|Sean Laureta			|C22503056			|Earth       	|seanl1213|
+|Emma Radojcic         	|C22369396      	|Water 			|Danielr147 & Emmaradojcic|
 |Ismail	Khan			|C22391076			|Fire			|ik24366|
 
 # Description of the assignment 
@@ -106,18 +106,15 @@ Using a loop of the buffer size, the color is set to use HSB colors to be more v
 
 How the method ShapeDraw draws hexagons is through a loop that iterates through angles from 0 to 360 degrees with increments of 60 degrees. Each pass adds another line hexagon. For each angle, the method calculates the x and y coordinates of a vertex. The calculations use the cosine and sine of the angle converted to radians multiplied by the radius. This determines how far from the center point (centerX) each vertex is placed, and a line is drawn to each vertex, closing the shape. The hexagons are then rotated around the z-axis. The motion variables (motion, x, y) are updated to make the hexagons move. They gradually translate across the screen in a circular path due to the sine and cosine wave functions. The spinAngle and motionSpeed are incremented to update the movement and rotation over the period of the song.
 
-
-
-
-
-
 # What I am most proud of in the assignment
 
-### Emma
-### Sean
-### Muhammad Z
+#### Emma
+#### Sean
+#### Muhammad Z
 
-### Ismail
+What I'm most proud of in this assignment was probably learning that I can make art with code. I never expected that coding, which I always thought was analytical and straightforward, can bend and mold into an art form that can produce amazing visuals that only your imagination can limit. Another thing I'm proud of is learning how to use Processing and math with Processing to create amazing visual art, especially using sine and cosine to make spirals that look really trippy and hypnotizing to watch.
+
+#### Ismail
 
 # Markdown Tutorial
 
