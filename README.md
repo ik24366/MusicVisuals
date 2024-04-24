@@ -23,7 +23,9 @@ This audio music visualizer features four distinct elemental visuals representin
 
 # How it works
 
-Our music visualizer project is structured using individual files holding our repescted visuls. The main Java file, Main.java, executes our code, while Avater.java combines the individual visual from separate the seperate files. each file is named after our student number.
+Our music visualizer project is structured using individual files holding our respective visuals. The main Java file, Main.java, executes our code, while Avatar.java combines the individual visuals from separate files. Each file is named after our student number. Under our student number folders, we have contained each of our visuals, which makes it easier to locate each one.
+
+We created a class called Avatar that extends the Java Visuals file. This class takes all the functions and imports we have created and applied in Visuals to be extended to our Avatar file. We then declared each variable without initializing them, assigning short names to our visuals, such as referring to the Earth Visual as "ev". In our setup, we read in our song and prepared it with different functions to be used in our visuals. We used keyboard inputs from 1 to 5 to run each of our visuals.
 
 # What I am most proud of in the assignment
 

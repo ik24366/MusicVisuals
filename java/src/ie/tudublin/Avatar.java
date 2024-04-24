@@ -14,7 +14,7 @@ public class Avatar extends Visual {
     public AudioPlayer mySound; // Minim audio player
 
     // Declare the visual variables without initializing them
-    AirVisual mz;
+    AirVisual av;
     FireVisual fv;
     WaterVisual wv;
     EarthVisual ev;
@@ -48,7 +48,7 @@ public class Avatar extends Visual {
     public void initializeVisuals() {
         // Initialize each visual and pass a reference to this sketch and the
         // AudioPlayer
-        mz = new AirVisual(this);
+        av = new AirVisual(this);
         fv = new FireVisual(this);
         wv = new WaterVisual(this);
         ev = new EarthVisual(this);
@@ -82,7 +82,7 @@ public class Avatar extends Visual {
         } else if (visual == 3) {
             wv.draw();
         } else if (visual == 4) {
-            mz.draw();
+            av.draw();
         }
     }
 }
