@@ -4,9 +4,9 @@
 | Name                  | Student Number    | Music Visuals | Github users|
 |-----------            |-----------        |-----------	|---|
 |Muhammad Zayan Zahid	|C22480092 			|Air  			|momo858|
-|Sean Laureta			|C22503056			|Earth       	||	
+|Sean Laureta			|C22503056			|Earth       	|seanl1213|	
 |Emma Radojcic         	|C22369396      	|Water 			| Danielr147 & Emmaradojcic |
-|Ismail	Khan			|C22391076				|Fire			|ik24366|
+|Ismail	Khan			|C22391076			|Fire			|ik24366|
 
 # Description of the assignment 
 
@@ -29,13 +29,37 @@ We created a class called Avatar that extends the Java Visuals file. This class 
 
 ### Earth
 your stuff
-remeber to add a pic and explain your code 
-### Fire
-his stuff
 remeber to add a pic and explain your code
+
+![An image](images/Earth.png)
+
+### Fire
+![An image](images/fire.png)
+1. Properties:
+- amplitude: Stores the audio level.
+- fv: Reference to the main program.
+- fireballs: Array for simulating fireballs.
+- fireParticles: Array for simulating rising fire particles.
+- n1 and n2: Control variables for movement.
+2. Draw Method:
+- Gets audio level and sets color mode.
+- Draws fireballs and fire particles.
+- Iterates through audio buffer, calculating positions based on current frame and audio level.
+- Draws shapes (circles and rectangles) based on audio level, using left and right channels.
+- Increments control variables for movement.
+3. Fireball Class:
+- Represents a fireball with position, size, speed, and color.
+- Updates size and position, randomizing if beyond screen.
+- Displays fireball as a semi-transparent ellipse with a red stroke.
+4. FireParticle Class:
+- Represents a rising fire particle with position, speed, size, and color.
+- Updates position by moving upwards, wrapping around if off-screen.
+- Displays particle as an ellipse with a color from yellow to orange.
+
 ### Water
 she? stuff
 remeber to add a pic and explain your code
+
 ### Air
 
 ![An image](images/Air.png)
