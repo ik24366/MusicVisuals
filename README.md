@@ -28,13 +28,28 @@ Our music visualizer project is structured using individual files holding our re
 We created a class called Avatar that extends the Java Visuals file. This class takes all the functions and imports we have created and applied in Visuals to be extended to our Avatar file. We then declared each variable without initializing them, assigning short names to our visuals, such as referring to the Earth Visual as "ev". In our setup, we read in our song and prepared it with different functions to be used in our visuals. We used keyboard inputs from 1 to 5 to run each of our visuals.
 
 ### Earth
-
 ![An image](images/Earth.png)
 
 This Java program creates a visual representation of my take on the Earth aspect scene in "Avatar the Last Air Bender" using the Processing library. It incorporates elements such as a dynamic tree, columns, and background particles to generate an immersive environment. 
 
-The program utilises arrays to store the properties of the background particles (speed, position and size). There are five main methods to the code: 'initializeBackgroundParticles()' which ensures variation in appearance and movement. 'draw ()'Renders the whole scene drawing the entire visualistion. 'drawTree(float h, float brightness)' Creates the tree structure, adjusting branch length and angle based on amplitude and brightness. 'drawColumns()' Creates columns on the bottom of the screen, with the height changing by amplitude and utilizing color gradients for a realistic 3D kind of appearance.
-'drawBackgroundParticles()' Draws background particles that move upwards on the screen, resetting them when they go out of view. These particles contribute to the atmosphere of the scene creating a nearly out of this world feel. 
+The program utilises arrays to store the properties of the background particles (speed, position and size). 
+
+There are five main methods to the code: 
+
+1. 'initializeBackgroundParticles()': 
+	This method ensures variation in appearance and movement by initializing properties such as position, speed, and size for background particles.
+
+2. 'draw ()':
+	Renders the entire scene by clearing the background, setting up lighting effects, drawing background particles, calculating amplitude, drawing the tree, and rendering columns.
+
+3. 'drawTree(float h, float brightness)':
+	Creates the tree structure, adjusting branch length and angle based on amplitude and brightness. It recursively draws a tree with branches based on the given height and brightness.
+
+4. 'drawColumns()':
+	Creates columns at the bottom of the screen, with heights changing based on amplitude and utilizing color gradients for a realistic 3D appearance. This method draws architectural columns on the screen with heights determined by amplitude, creating a gradient effect.
+
+5. 	'drawBackgroundParticles()':
+	 Draws background particles that move upwards on the screen and resets them when they go out of view. These particles contribute to the atmosphere of the scene, creating an out of this world ambiance.
 
 ### Fire
 ![An image](images/fire.png)
