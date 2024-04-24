@@ -37,7 +37,7 @@ public class EarthVisual {
         ev.background(0);
         ev.lights();
         drawBackgroundParticles(); // Draw the particles before other visual elements for better blending
-        float currentAmplitude = (float) (ev.getSmoothedAmplitude() * 0.05); // makes amplitdude slower so tree dont go off screen
+        float currentAmplitude = (float) (ev.getSmoothedAmplitude() * 0.09); // makes amplitdude slower so tree dont go off screen
         totalAmplitude += currentAmplitude;
     
         ev.pushMatrix();
