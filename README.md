@@ -1,12 +1,12 @@
 # Music Visualiser Project
 
 
-| Name                  | Student Number    | Music Visuals |
-|-----------            |-----------        |-----------	|
-|Muhammad Zayan Zahid	|C22480092 			|Air  			|
-|Sean Laureta			|C22503056			|Earth       	|
-|Emma Radojcic         	|C22369396      	|Water 			| (Danielr147 & Emmaradojcic github users.)
-|Ismail					|C					|Fire			|
+| Name                  | Student Number    | Music Visuals | Github users|
+|-----------            |-----------        |-----------	|---|
+|Muhammad Zayan Zahid	|C22480092 			|Air  			|momo858|
+|Sean Laureta			|C22503056			|Earth       	||	
+|Emma Radojcic         	|C22369396      	|Water 			| (Danielr147 & Emmaradojcic) |
+|Ismail					|C					|Fire			||
 
 
 ## Instructions
