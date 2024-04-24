@@ -37,7 +37,9 @@ remeber to add a pic and explain your code
 she? stuff
 remeber to add a pic and explain your code
 ### Air
-my stuff
+
+![An image](images/Air.png)
+
 
 
 
