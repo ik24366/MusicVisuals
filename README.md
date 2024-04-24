@@ -4,8 +4,7 @@
 | Name                  | Student Number    | Music Visuals | Github users|
 |-----------            |-----------        |-----------	|---|
 |Muhammad Zayan Zahid	|C22480092 			|Air  			|momo858|
-|Sean Laureta			|C22503056			|Earth       	||	
-|Sean Laureta			|C22503056			|Earth       	|seanl1213|	
+|Sean Laureta			|C22503056			|Earth       	||
 |Emma Radojcic         	|C22369396      	|Water 			| Danielr147 & Emmaradojcic |
 |Ismail	Khan			|C22391076			|Fire			|ik24366|
 
@@ -117,6 +116,7 @@ How the method ShapeDraw draws hexagons is through a loop that iterates through 
 ### Emma
 ### Sean
 ### Muhammad Z
+
 ### Ismail
 
 # Markdown Tutorial
