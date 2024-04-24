@@ -12,7 +12,7 @@
 
 This audio music visualizer features four distinct elemental visuals representing *Fire, Water, Earth, and Air*. Each visual responds to a fan-made remix of the "Avatar: The Last Airbender" soundtrack by Samuel Kim Music.
 
-## Video goes heya
+## Video
 [![YouTube](images/Water.png)](https://www.youtube.com/watch?v=hNwvNMZ7j54)
 
 # Instructions
