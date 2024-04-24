@@ -34,8 +34,19 @@ remeber to add a pic and explain your code
 ![An image](images/Earth.png)
 
 ### Fire
-his stuff
 ![An image](images/fire.png)
+1. Properties:
+- amplitude: Stores the audio level.
+- fv: Reference to the main program.
+- fireballs: Array for simulating fireballs.
+- fireParticles: Array for simulating rising fire particles.
+- n1 and n2: Control variables for movement.
+2.Constructor:
+- Gets audio level and sets color mode.
+- Draws fireballs and fire particles.
+- Iterates through audio buffer, calculating positions based on current frame and audio level.
+- Draws shapes (circles and rectangles) based on audio level, using left and right channels.
+- Increments control variables for movement.
 
 ### Water
 she? stuff
