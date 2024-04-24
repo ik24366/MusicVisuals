@@ -82,23 +82,17 @@ remeber to add a pic and explain your code
 
 ![An image](images/Air.png)
 
-This java Program creates 2D audio visualization using the Processing library and Minim audio library. The program displays Hexagons that change size and color based on the audio levels of Avater.mp3, The code uses two other classes ShapeDraw.java and Lightning.java to visualise a hurican of hexagons that produce lightning.
+This Java program creates a 2D audio visualization using the Processing library and Minim audio library. The program displays hexagons that change size and color based on the audio levels of "Avatar.mp3". The code utilizes two other classes, ShapeDraw.java and Lightning.java, to visualize a hurricane of hexagons that produce lightning.
 
-The properties of Air.java are spinAngle, motion, motionSpeed, motion, speed, these are veriables that controle the movement and speed of the hexagons around dynamicall 
-There is a instance of the Avater class and lightning class.
+The properties of Air.java are spinAngle, motion, motionSpeed, and speed. These variables control the movement and speed of the hexagons dynamically. There is an instance of the Avatar class and Lightning class.
 
-I have construckter that initializes the AirVisual class with an instance of the Avatar class, and also creates an instance of the Lightning class, passing the Avatar instance to it, which allows the Lightning class to be used in the visualation. 
+I have constructed the AirVisual class with an instance of the Avatar class and also created an instance of the Lightning class, passing the Avatar instance to it, which allows the Lightning class to be used in the visualization.
 
-In the Draw method fisrt we call the lightning method that created lihgtning from the top of the screen to the bottem and draws a lihgtning bolt.
-we set up the background to a black transparent rectangle that allowes better transition through the frames 
+In the draw method, we first call the lightning method that creates lightning from the top of the screen to the bottom and draws a lightning bolt. We set up the background with a black transparent rectangle that allows better transitions through the frames.
 
-using a loop of the buffer size 
-the color is set to use HSB colors to be more vibrant, and we calculate the amplitude of the left audio channel and maps it to a value that determines the brightness of the color, making the visualization react to the music's volume
-we call the method shapedraw that draws hexagons and places them using the amplitude of the left level of the song and the buffer size. how the method shapedraw draw hexagons is a loop iterates through angles from 0 to 360 degrees in increments of 60 degrees. Each iteration represents one of the six vertices of the hexagon.
-For each angle, the method calculates the x and y coordinates of a vertex. The calculations use the cosine and sine of the angle (converted to
-radians) multiplied by the radius. This determines how far from the center point (centerX) each vertex is placed, a line is drawn to each vertex and the shape is cloesed. 
-the hexagons are then Rotateted the hexagons around the z-axis
+Using a loop of the buffer size, the color is set to use HSB colors to be more vibrant. We calculate the amplitude of the left audio channel and map it to a value that determines the brightness of the color, making the visualization react to the music's volume. We call the method ShapeDraw that draws hexagons and places them using the amplitude of the left level of the song and the buffer size. 
 
+How the method ShapeDraw draws hexagons is through a loop that iterates through angles from 0 to 360 degrees with increments of 60 degrees. Each pass adds another line hexagon. For each angle, the method calculates the x and y coordinates of a vertex. The calculations use the cosine and sine of the angle converted to radians multiplied by the radius. This determines how far from the center point (centerX) each vertex is placed, and a line is drawn to each vertex, closing the shape. The hexagons are then rotated around the z-axis. The motion variables (motion, x, y) are updated to make the hexagons move. They gradually translate across the screen in a circular path due to the sine and cosine wave functions. The spinAngle and motionSpeed are incremented to update the movement and rotation over the period of the song.
 
 
 
