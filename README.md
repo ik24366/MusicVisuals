@@ -122,5 +122,7 @@ What I'm most proud of in this assignment was probably learning that I can make 
 
 #### Ismail
 
+What im most proud of is how we had a vision of maing a visual based on the show Avatar and how we conveniently split the 4 element between us, to give everyone their unique and individual touch through their element which in the end meshed very well into a project i am proud to be apart of and i learned many lessons through the troubles and advantages of working in a team and having a shared vision.
+
 
 
