@@ -111,7 +111,10 @@ How the method ShapeDraw draws hexagons is through a loop that iterates through 
 I am most proud of 
 
 
-#### Sean
+#### Sean 
+What I am most proud of in this assignment is the learning process how to code in java in a unique and fun way. I did not realise there was more to coding than just maintaining code or making websites etc. there is a fun way to code and learn and to try new things.
+I am happy that the code ended up working and I got to learn how to work as a group to create art through code.
+
 #### Muhammad Z
 
 What I'm most proud of in this assignment was probably learning that I can make art with code. I never expected that coding, which I always thought was analytical and straightforward, can bend and mold into an art form that can produce amazing visuals that only your imagination can limit. Another thing I'm proud of is learning how to use Processing and math with Processing to create amazing visual art, especially using sine and cosine to make spirals that look really trippy and hypnotizing to watch.
