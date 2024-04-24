@@ -200,25 +200,25 @@ class Wave {
         wv.beginShape();
 
         switch (edge) {
-            case 0: // Top
+            case 0:
                 baseLine = 0;
-                waveHeight = -1; // Negative because we're going upwards
+                waveHeight = -1; //negative because we're going upwards
                 for (int x = 0; x < wv.width; x += 5) {
                     float y = baseLine + waveHeight * amplitude * wv.noise(noiseOffset + x * 0.05f);
                     wv.vertex(x, y);
                 }
                 break;
-            case 1: // Right
+            case 1:
                 baseLine = wv.width;
-                waveHeight = -1; // Negative to go left
+                waveHeight = -1; //negative to go left
                 for (int y = 0; y < wv.height; y += 5) {
-                    float x = baseLine + waveHeight * amplitude * wv.noise(noiseOffset + y * 0.05f);
+                    float x = baseLine + waveHeight * amplitude * wv.noise(noiseOffset + y * 0.25f);
                     wv.vertex(x, y);
                 }
                 break;
             case 2: // Bottom
                 baseLine = wv.height;
-                waveHeight = 1; // Positive to go downwards
+                waveHeight = 1; //positive to go downwards
                 for (int x = 0; x < wv.width; x += 5) {
                     float y = baseLine + waveHeight * amplitude * wv.noise(noiseOffset + x * 0.05f);
                     wv.vertex(x, y);

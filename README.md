@@ -76,8 +76,20 @@ There are five main methods to the code:
 - Displays particle as an ellipse with a color from yellow to orange.
 
 ### Water
-she? stuff
-remeber to add a pic and explain your code
+![An image](images/Water.png)
+This Java program uses the Processing framework to paint a picture with music, focusing on the theme of water.The visual output presents circles resembling raindrops, an orb that simulates a bubble, and waves that add to the overall water theme.
+
+The essence of the program is encapsulated within classes such as Circle.java, Particle.java, and Wave.java, which together create a dynamic aquatic landscape. The movement and appearance of these elements are driven by properties like size, growth rate, and position, which are adjusted in real-time based on the audio input to emulate the natural behavior of water.
+
+An instance of the main WaterVisual class brings the visualization to life. It's here that the central orb, drawn by the drawRotating3DOrb function, becomes the focal point, pulsating and spinning in a mesmerizing dance that syncs with the music. Enhanced by the Processing lighting functions, it glows like a mysterious object under the sea.
+
+The draw method is the beating heart of the visualization. It begins by painting a dark background to mimic the depths of the ocean, over which the raindrop circles expand and the particles rise like tiny bubbles. This backdrop ensures smooth transitions between frames for a cohesive visual experience.
+
+The program's use of vibrant HSB colors brings the scene to life. The audio's amplitude is carefully analyzed to modulate the brightness and saturation, making the visualization pulse with the music. This is evident as the circles—our simulated raindrops—grow in size and the particles drift upwards, reacting to the ebbs and flows of the audio track.
+
+In terms of rendering the shapes, the program employs loops that iterate through angles to plot the points of the circles, much like how a previous version might have drawn hexagons. The calculated coordinates ensure that each circle expands outward from its origin, and with added rotation around the z-axis, the visualization achieves a sense of depth and fluid motion.
+
+The properties that dictate motion—such as the angle increments and speed—are continuously updated, giving the impression that the water elements are swaying to the music. The overall effect is a serene and captivating visual representation of the chosen audio, mirroring the tranquil yet unpredictable nature of water.
 
 ### Air
 
