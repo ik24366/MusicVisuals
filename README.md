@@ -29,16 +29,24 @@ We created a class called Avatar that extends the Java Visuals file. This class 
 
 ### Earth
 your stuff
+remeber to add a pic and explain your code 
 ### Fire
 his stuff
+remeber to add a pic and explain your code
 ### Water
 she? stuff
+remeber to add a pic and explain your code
 ### Air
 my stuff
 
 
 
 # What I am most proud of in the assignment
+
+### Emma
+### Sean
+### Muhammad Z
+### Ismail
 
 # Markdown Tutorial
 
